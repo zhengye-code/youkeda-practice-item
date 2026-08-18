@@ -82,7 +82,7 @@ public class runClient {
                     @Override
                     public void onHeartbeatFailure(Throwable cause) {
                         // 心跳失败：网络异常或登录态可能失效
-                        log.warn("心跳异常: {}", cause == null ? "unknown" : cause.getMessage());
+                        log.warn("心跳异常: {}", cause == null ? "unknown" : cause.getMessage(), cause);
                     }
                 })
                 .onDisconnect(new OnDisconnectListener() {

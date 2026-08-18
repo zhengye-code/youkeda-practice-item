@@ -30,6 +30,7 @@ public class ResumeStore {
     public static void save(ILinkClient client) throws Exception {
         ResumeContext rc = client.exportResumeContext();
         if (rc == null || rc.getLoginContext() == null) {
+            log.warn("未登录或无可导出的上下文，跳过保存恢复上下文");
             return;
         }
         LoginContext lc = rc.getLoginContext();
@@ -59,6 +60,7 @@ public class ResumeStore {
     public static ResumeContext load() {
         File f = new File(RESUME_FILE);
         if (!f.exists() || f.length() == 0) {
+            log.debug("无恢复上下文文件（首次运行或已清理）");
             return null;
         }
         try {
@@ -66,6 +68,7 @@ public class ResumeStore {
             JsonNode root = mapper.readTree(f);
             String botToken = root.path("botToken").asText(null);
             if (botToken == null || botToken.isEmpty()) {
+                log.warn("恢复文件中缺少 botToken，忽略恢复");
                 return null;
             }
             LoginContext lc = new LoginContext(
@@ -98,7 +101,7 @@ public class ResumeStore {
             }
             return ResumeContext.builder(lc).updatesCursor(cursor).conversationContexts(convs).build();
         } catch (Exception e) {
-            log.warn("读取 SDK 恢复上下文失败: {}", e.getMessage());
+            log.warn("读取 SDK 恢复上下文失败: ", e);
             return null;
         }
     }

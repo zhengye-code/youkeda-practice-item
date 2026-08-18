@@ -3,6 +3,8 @@ package config;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 应用配置：启动时从 classpath 加载 config.properties，集中管理智谱 AI 相关参数。
@@ -10,6 +12,7 @@ import java.util.Properties;
  * 若配置文件缺失或字段缺失，则使用代码内默认值。
  */
 public class Config {
+    private static final Logger log = LoggerFactory.getLogger(Config.class);
     private static final String PROPERTIES_FILE = "config.properties";
     private static final Properties props = new Properties();
 
@@ -18,10 +21,10 @@ public class Config {
             if (in != null) {
                 props.load(in);
             } else {
-                System.err.println("未找到 " + PROPERTIES_FILE + "，将使用默认值");
+                log.warn("未找到 {}，将使用默认值", PROPERTIES_FILE);
             }
         } catch (IOException e) {
-            System.err.println("加载 " + PROPERTIES_FILE + " 失败: " + e.getMessage());
+            log.warn("加载 {} 失败: ", PROPERTIES_FILE, e);
         }
     }
 
@@ -60,6 +63,41 @@ public class Config {
         return get("ai.imageGen.url", "https://open.bigmodel.cn/api/paas/v4/images/generations");
     }
 
+    /** 语音转文本接口地址（ASR）。 */
+    public static String asrUrl() {
+        return get("ai.asr.url", "https://open.bigmodel.cn/api/paas/v4/audio/transcriptions");
+    }
+
+    /** 语音转文本模型。 */
+    public static String asrModel() {
+        return get("ai.asr.model", "glm-asr-2512");
+    }
+
+    /** 文本转语音接口地址（TTS）。 */
+    public static String ttsUrl() {
+        return get("ai.tts.url", "https://open.bigmodel.cn/api/paas/v4/audio/speech");
+    }
+
+    /** 文本转语音模型。 */
+    public static String ttsModel() {
+        return get("ai.tts.model", "glm-tts");
+    }
+
+    /** 文本转语音音色。 */
+    public static String ttsVoice() {
+        return get("ai.tts.voice", "tongtong");
+    }
+
+    /** 和风天气 API Host（专属域名）。 */
+    public static String qweatherHost() {
+        return get("qweather.host", "https://api.qweather.com");
+    }
+
+    /** 和风天气 JWT Token。 */
+    public static String qweatherToken() {
+        return get("qweather.token", "");
+    }
+
     private static String get(String key, String def) {
         String v = props.getProperty(key);
         return (v == null || v.trim().isEmpty()) ? def : v.trim();
@@ -73,6 +111,7 @@ public class Config {
         try {
             return Integer.parseInt(v.trim());
         } catch (NumberFormatException e) {
+            log.warn("配置项 {} 不是合法整数: {}", key, v);
             return def;
         }
     }

@@ -1,3 +1,5 @@
+package services;
+
 import com.github.wechat.ilink.sdk.ILinkClient;
 import com.github.wechat.ilink.sdk.core.model.MessageItem;
 import com.github.wechat.ilink.sdk.core.model.WeixinMessage;
@@ -6,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import config.Config;
 import kong.unirest.Unirest;
+import org.apache.commons.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +20,7 @@ import java.util.Base64;
  * 以及图片消息判断与 AI 回复中的图片标记解析。
  */
 public class ImageService {
+
     private static final Logger log = LoggerFactory.getLogger(ImageService.class);
 
     // ==================== 下载 ====================
@@ -29,6 +33,7 @@ public class ImageService {
     /** 从 URL 下载图片字节（用于将 AI 生成的图片发送给用户）。 */
     public static byte[] downloadImageFromUrl(String url) {
         if (url == null || url.isEmpty()) {
+            log.warn("图片 URL 为空，无法下载");
             return new byte[0];
         }
         return Unirest.get(url).asBytes().getBody();
@@ -38,7 +43,9 @@ public class ImageService {
 
     /** 识别图片内容：base64 编码后调用智谱视觉模型 GLM-4V，返回图片描述；失败时返回空字符串。 */
     public static String recognizeImage(byte[] imageBytes, String mime) {
+        log.info("开始识别图片");
         if (imageBytes == null || imageBytes.length == 0) {
+            log.warn("图片字节为空，无法识别");
             return "";
         }
         String base64 = Base64.getEncoder().encodeToString(imageBytes);
@@ -75,8 +82,12 @@ public class ImageService {
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(json);
+            if (root.has("error")) {
+                log.error("AI 接口返回错误: {}", root.path("error"));
+            }
             JsonNode content = root.path("choices").path(0).path("message").path("content");
             if (content.isTextual()) {
+                log.info("AI解析图片结果为："+content.asText());
                 return content.asText();
             }
             if (content.isArray()) {
@@ -84,11 +95,12 @@ public class ImageService {
                 for (JsonNode c : content) {
                     sb.append(c.path("text").asText(""));
                 }
+                log.info("AI解析图片结果为："+ sb);
                 return sb.toString();
             }
             return "";
         } catch (Exception e) {
-            log.warn("解析 OpenAI 响应失败: {}", e.getMessage());
+            log.warn("解析 OpenAI 响应失败，原始响应: {}", json, e);
             return "";
         }
     }
@@ -97,6 +109,7 @@ public class ImageService {
 
     /** 文生图：根据提示词生成图片，返回生成的图片 URL；失败时返回空字符串。 */
     public static String generateImage(String prompt) {
+        log.info("开始生成图片");
         if (prompt == null || prompt.trim().isEmpty()) {
             return "";
         }
@@ -113,9 +126,16 @@ public class ImageService {
                     .body(body.toString())
                     .asString();
             JsonNode root = mapper.readTree(response.getBody());
-            return root.path("data").path(0).path("url").asText("");
+            if (root.has("error")) {
+                log.error("CogView 返回错误: {}", root.path("error"));
+            }
+            String url = root.path("data").path(0).path("url").asText("");
+            if (url.isEmpty()) {
+                log.warn("CogView 未返回图片 URL，响应: {}", response.getBody());
+            }
+            return url;
         } catch (Exception e) {
-            log.warn("AI 生成图片失败: {}", e.getMessage());
+            log.warn("AI 生成图片失败: ", e);
             return "";
         }
     }
@@ -125,6 +145,7 @@ public class ImageService {
     /** 使用 SDK 发送图片消息给用户。 */
     public static void sendImage(ILinkClient client, String userId, byte[] imageBytes, String caption)
             throws Exception {
+        log.info("发送图片给AI");
         client.sendImage(userId, imageBytes, "ai.png", caption);
     }
 
