@@ -3,6 +3,7 @@ package com.youkeda.practice.bot;
 import com.github.wechat.ilink.sdk.ILinkClient;
 import com.github.wechat.ilink.sdk.core.login.LoginContext;
 import com.github.wechat.ilink.sdk.core.model.MessageItem;
+import com.github.wechat.ilink.sdk.core.model.VoiceItem;
 import com.github.wechat.ilink.sdk.core.model.WeixinMessage;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
@@ -18,11 +19,12 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 微信扫码登录，接收文字和图片消息，并通过配置的大模型生成文字回复。
+ * 微信扫码登录，接收文字、图片和语音消息，并通过配置的大模型生成回复。
  */
 public final class WechatBotApplication {
 
@@ -36,10 +38,22 @@ public final class WechatBotApplication {
     public static void main(String[] args) throws Exception {
         System.out.println("正在启动微信 iLink Bot……");
         BailianLlmService llmService = BailianLlmService.fromEnvironment();
+        Optional<MultimodalLlmService> multimodalService =
+                MultimodalLlmService.fromEnvironment();
+        Optional<WeatherService> weatherService = WeatherService.fromEnvironment();
         System.out.println("正在验证 " + llmService.getProviderName()
                 + " 连接，模型=" + llmService.getModel() + "……");
         llmService.validateConnection();
         System.out.println(llmService.getProviderName() + " 连接测试通过（API Key 仅从环境变量读取）。");
+        if (multimodalService.isPresent()) {
+            System.out.println("图片理解已启用，视觉模型="
+                    + multimodalService.get().getModel() + "。");
+        } else {
+            System.out.println("图片理解未配置；图片接收、保存和原图回传仍可使用。");
+        }
+        System.out.println(weatherService.isPresent()
+                ? "天气查询已启用（高德 Web 服务 Key 仅从环境变量读取）。"
+                : "天气查询未配置；设置 AMAP_WEATHER_API_KEY 后即可启用。");
 
         try (ILinkClient client = ILinkClient.builder().build()) {
             String qrCodeContent = client.executeLogin();
@@ -51,7 +65,7 @@ public final class WechatBotApplication {
 
             LoginContext loginContext = client.getLoginFuture().get(3, TimeUnit.MINUTES);
             System.out.println("登录成功，botId = " + loginContext.getBotId());
-            System.out.println("现在请使用刚才扫码的同一个微信账号，向新出现的机器人会话发送文字或图片消息。");
+            System.out.println("现在请使用刚才扫码的同一个微信账号，向新出现的机器人会话发送文字、图片或语音消息。");
 
             while (!Thread.currentThread().isInterrupted()) {
                 List<WeixinMessage> messages = client.getUpdates();
@@ -61,7 +75,7 @@ public final class WechatBotApplication {
                 }
 
                 for (WeixinMessage message : messages) {
-                    handleMessage(client, llmService, message);
+                    handleMessage(client, llmService, multimodalService, weatherService, message);
                 }
             }
         }
@@ -70,6 +84,8 @@ public final class WechatBotApplication {
     private static void handleMessage(
             ILinkClient client,
             BailianLlmService llmService,
+            Optional<MultimodalLlmService> multimodalService,
+            Optional<WeatherService> weatherService,
             WeixinMessage message
     ) {
         String fromUserId = message.getFrom_user_id();
@@ -79,11 +95,16 @@ public final class WechatBotApplication {
 
         for (MessageItem item : message.getItem_list()) {
             if (item.getImage_item() != null) {
-                handleImage(client, message, item, fromUserId);
+                handleImage(client, multimodalService, message, item, fromUserId);
+            }
+
+            if (item.getVoice_item() != null) {
+                handleVoice(client, llmService, weatherService, message, item, fromUserId);
             }
 
             if (item.getText_item() != null && item.getText_item().getText() != null) {
-                handleText(client, llmService, fromUserId, item.getText_item().getText());
+                handleText(client, llmService, weatherService,
+                        fromUserId, item.getText_item().getText());
             }
         }
     }
@@ -91,13 +112,15 @@ public final class WechatBotApplication {
     private static void handleText(
             ILinkClient client,
             BailianLlmService llmService,
+            Optional<WeatherService> weatherService,
             String fromUserId,
             String incomingText
     ) {
         System.out.println("收到文字消息：userId=" + fromUserId + "，text=" + incomingText);
 
         try {
-            String reply = llmService.chat(fromUserId, incomingText);
+            String reply = generateReply(
+                    llmService, weatherService, fromUserId, incomingText, false);
             client.sendText(fromUserId, reply);
             System.out.println("大模型回复已发送，字符数=" + reply.length());
         } catch (IOException | RuntimeException exception) {
@@ -108,6 +131,7 @@ public final class WechatBotApplication {
 
     private static void handleImage(
             ILinkClient client,
+            Optional<MultimodalLlmService> multimodalService,
             WeixinMessage message,
             MessageItem item,
             String fromUserId
@@ -122,7 +146,7 @@ public final class WechatBotApplication {
             }
 
             String extension = detectImageExtension(imageBytes);
-            Path savedImage = saveIncomingImage(message, imageBytes, extension);
+            Path savedImage = saveIncomingMedia(message, imageBytes, "image", extension);
             String fileName = savedImage.getFileName().toString();
 
             client.sendImage(
@@ -133,15 +157,115 @@ public final class WechatBotApplication {
             );
             System.out.println("图片已保存并回传：path=" + savedImage
                     + "，bytes=" + imageBytes.length);
+
+            if (multimodalService.isEmpty()) {
+                client.sendText(fromUserId,
+                        "图片已成功接收和回传；配置视觉模型后，我还可以理解图片内容。");
+                return;
+            }
+
+            try {
+                String description = multimodalService.get().describeImage(
+                        imageBytes,
+                        imageMediaType(extension),
+                        "请用简洁中文描述这张图片，并回答图片中最可能需要关注的问题。"
+                );
+                client.sendText(fromUserId, "图片理解结果：\n" + description);
+                System.out.println("图片理解结果已发送，字符数=" + description.length());
+            } catch (IOException | RuntimeException visionException) {
+                System.err.println("图片已保存并回传，但视觉模型调用失败："
+                        + visionException.getMessage());
+                sendFallbackText(client, fromUserId,
+                        "图片已保存并回传，但图片理解暂时失败，请检查视觉模型配置。");
+            }
         } catch (IOException | RuntimeException exception) {
             System.err.println("下载、保存或回传图片失败：" + exception.getMessage());
             sendFallbackText(client, fromUserId, "图片已收到，但下载或回传失败，请稍后再试。");
         }
     }
 
-    private static Path saveIncomingImage(
+    private static void handleVoice(
+            ILinkClient client,
+            BailianLlmService llmService,
+            Optional<WeatherService> weatherService,
             WeixinMessage message,
-            byte[] imageBytes,
+            MessageItem item,
+            String fromUserId
+    ) {
+        VoiceItem voiceItem = item.getVoice_item();
+        System.out.println("收到语音消息：userId=" + fromUserId
+                + "，messageId=" + message.getMessage_id()
+                + "，playtimeMs=" + voiceItem.getPlaytime());
+
+        try {
+            byte[] voiceBytes = client.downloadVoiceFromMessageItem(item);
+            if (voiceBytes.length == 0) {
+                throw new IOException("下载到的语音内容为空");
+            }
+
+            Path savedVoice = saveIncomingMedia(message, voiceBytes, "voice", ".silk");
+            client.sendVoice(
+                    fromUserId,
+                    voiceBytes,
+                    savedVoice.getFileName().toString(),
+                    valueOrDefault(voiceItem.getPlaytime(), 0),
+                    valueOrDefault(voiceItem.getSample_rate(), 16000)
+            );
+            System.out.println("语音已保存并回传：path=" + savedVoice
+                    + "，bytes=" + voiceBytes.length);
+
+            String transcript = voiceItem.getText();
+            if (transcript == null || transcript.isBlank()) {
+                client.sendText(fromUserId,
+                        "语音收发测试成功，但这条消息没有携带可用的语音转写文本。原语音已保存并回传。");
+                return;
+            }
+
+            String normalizedTranscript = transcript.trim();
+            String reply = generateReply(
+                    llmService, weatherService, fromUserId, normalizedTranscript, true);
+            client.sendText(fromUserId,
+                    "语音识别：" + normalizedTranscript + "\n\nAI 回复：" + reply);
+            System.out.println("语音转写及 AI 回复已发送，转写字符数="
+                    + normalizedTranscript.length());
+        } catch (IOException | RuntimeException exception) {
+            System.err.println("下载、保存或处理语音失败：" + exception.getMessage());
+            sendFallbackText(client, fromUserId, "语音已收到，但处理失败，请稍后再试。");
+        }
+    }
+
+    private static String generateReply(
+            BailianLlmService llmService,
+            Optional<WeatherService> weatherService,
+            String userId,
+            String userText,
+            boolean fromVoice
+    ) throws IOException {
+        String defaultCity = System.getenv("WEATHER_DEFAULT_CITY");
+        Optional<WeatherIntentRecognizer.WeatherIntent> intent =
+                WeatherIntentRecognizer.recognize(userText, defaultCity);
+        if (intent.isPresent()) {
+            WeatherIntentRecognizer.WeatherIntent weatherIntent = intent.get();
+            if (!weatherIntent.hasCity()) {
+                return "你想查询哪个城市的天气？例如：北京今天天气怎么样？";
+            }
+            if (weatherService.isEmpty()) {
+                return "我识别到你在查询天气，但天气 API 还没有配置。请先设置 AMAP_WEATHER_API_KEY。";
+            }
+            System.out.println("识别到天气意图：city=" + weatherIntent.city()
+                    + "，dayOffset=" + weatherIntent.dayOffset());
+            return weatherService.get().query(weatherIntent.city(), weatherIntent.dayOffset());
+        }
+
+        return fromVoice
+                ? llmService.chatFromVoice(userId, userText)
+                : llmService.chat(userId, userText);
+    }
+
+    private static Path saveIncomingMedia(
+            WeixinMessage message,
+            byte[] mediaBytes,
+            String prefix,
             String extension
     ) throws IOException {
         Instant messageTime = message.getCreate_time_ms() == null
@@ -161,10 +285,24 @@ public final class WechatBotApplication {
         String messageId = message.getMessage_id() == null
                 ? UUID.randomUUID().toString()
                 : String.valueOf(message.getMessage_id());
-        Path output = directory.resolve("image-" + messageId + "-"
+        Path output = directory.resolve(prefix + "-" + messageId + "-"
                 + UUID.randomUUID().toString().substring(0, 8) + extension);
-        Files.write(output, imageBytes);
+        Files.write(output, mediaBytes);
         return output;
+    }
+
+    private static String imageMediaType(String extension) {
+        return switch (extension) {
+            case ".png" -> "image/png";
+            case ".gif" -> "image/gif";
+            case ".webp" -> "image/webp";
+            case ".heic" -> "image/heic";
+            default -> "image/jpeg";
+        };
+    }
+
+    private static int valueOrDefault(Integer value, int defaultValue) {
+        return value == null ? defaultValue : value;
     }
 
     private static String detectImageExtension(byte[] bytes) {

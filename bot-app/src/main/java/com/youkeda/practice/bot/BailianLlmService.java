@@ -123,10 +123,31 @@ public final class BailianLlmService {
             return "请发送一段文字，我来帮你处理。";
         }
 
+        return chatWithModelInput(userId, userText.trim(), userText.trim());
+    }
+
+    public String chatFromVoice(String userId, String transcript) throws IOException {
+        if (transcript == null || transcript.isBlank()) {
+            return "这条语音没有识别出可用文字，请再说一次。";
+        }
+
+        String normalizedTranscript = transcript.trim();
+        String modelInput = "以下文字是系统从用户刚发送的语音中识别出来的。"
+                + "请把它当作用户本人说的话直接回答，不要声称自己无法听见声音。\n"
+                + normalizedTranscript;
+        return chatWithModelInput(userId, modelInput, normalizedTranscript);
+    }
+
+    private String chatWithModelInput(
+            String userId,
+            String modelInput,
+            String historyUserText
+    ) throws IOException {
+
         Deque<ChatMessage> history = histories.computeIfAbsent(userId, ignored -> new ArrayDeque<>());
         synchronized (history) {
-            String reply = requestCompletion(history, userText.trim());
-            history.addLast(new ChatMessage("user", userText.trim()));
+            String reply = requestCompletion(history, modelInput);
+            history.addLast(new ChatMessage("user", historyUserText));
             history.addLast(new ChatMessage("assistant", reply));
             trimHistory(history);
             return reply;
