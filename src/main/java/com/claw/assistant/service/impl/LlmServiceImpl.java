@@ -1,5 +1,7 @@
 package com.claw.assistant.service.impl;
 
+import org.json.JSONObject;
+import org.json.JSONArray;
 import com.claw.assistant.service.LlmService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,12 +10,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -33,9 +35,6 @@ public class LlmServiceImpl implements LlmService {
     private String model;
     @Value("${aliyun.dashscope.vl-model}")
     private String vlModel;
-    @Value("${aliyun.dashscope.omni-model}")
-    private String omniModel;
-
 
     public String describeImage(byte[] imageBytes) {
         try {
@@ -43,7 +42,7 @@ public class LlmServiceImpl implements LlmService {
 
             Map<String, Object> body = Map.of("model", vlModel, "messages",
                     List.of(Map.of("role", "user", "content", List.of(
-                                    Map.of("type", "text", "text", "简述图片"),
+                                    Map.of("type", "text", "text", "以幽默风趣的语言谈论图片"),
                                             Map.of("type", "image_url", "image_url",
                                                     Map.of("url", "data:image/jpeg;base64," + base64Image)
                                             )
@@ -83,7 +82,77 @@ public class LlmServiceImpl implements LlmService {
         }
     }
 
+    @Override
+    public String chatWithSystemPrompt(String systemPrompt, String userMessage, String model) throws IOException {
+        JSONArray messages = new JSONArray();
+        JSONObject systemMsg = new JSONObject();
+        systemMsg.put("role", "system");
+        systemMsg.put("content", systemPrompt);
+        messages.put(systemMsg);
 
+        JSONObject userMsg = new JSONObject();
+        userMsg.put("role", "user");
+        userMsg.put("content", userMessage);
+        messages.put(userMsg);
+
+        JSONObject requestBodyJson = new JSONObject();
+        requestBodyJson.put("model", model);
+        requestBodyJson.put("messages", messages);
+
+        JSONObject parameters = new JSONObject();
+        parameters.put("max_tokens", 10);
+        parameters.put("temperature", 0.0);
+        requestBodyJson.put("parameters", parameters);
+        String requestBody = requestBodyJson.toString();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(baseUrl))
+                .header("Authorization", "Bearer " + apiKey)
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+                .build();
+
+        try {
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() == 200) {
+                return extractContent(response.body());
+            }
+            throw new IOException("LLM 调用失败: " + response.statusCode() + ", body: " + response.body());
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new IOException("请求被中断", e);
+        }
+    }
+
+    private String extractContent(String responseBody) {
+        try {
+            JSONObject root = new JSONObject(responseBody);
+            JSONArray choices = root.getJSONArray("choices");
+            if (choices != null && choices.length() > 0) {
+                JSONObject firstChoice = choices.getJSONObject(0);
+                JSONObject message = firstChoice.getJSONObject("message");
+                if (message != null) {
+                    return message.getString("content").trim();
+                }
+            }
+            throw new IOException("解析 LLM 响应失败：未找到 choices[0].message.content");
+        } catch (Exception e) {
+            throw new RuntimeException("解析 LLM 响应失败，原始响应: " + responseBody, e);
+        }
+    }
+
+    @Override
+    public String chatWithWeatherContext(String userMessage, String weatherData) throws IOException {
+        String systemPrompt = """
+        你是一个天气助手。以下是用户查询城市的实时天气数据：
+        %s
+        
+        请根据以上天气数据，用自然、友好的语言回答用户的问题。如果天气数据中没有用户问的信息，就如实告知。
+        回答要简洁幽默不单调,不使用emoji表情,像个可爱风趣的助手。
+        """.formatted(weatherData);
+
+        return chatWithSystemPrompt(systemPrompt, userMessage, model);
+    }
 
     @Override
     public String chat(String message) {
@@ -91,7 +160,7 @@ public class LlmServiceImpl implements LlmService {
             Map<String, Object> body = Map.of(
                     "model", model,
                     "messages", List.of(
-                            Map.of("role", "system", "content", "简洁回复"),
+                            Map.of("role", "system", "content", "简洁幽默"),
                             Map.of("role", "user", "content", message)
                     ),
                     "stream", false

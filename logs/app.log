@@ -1,596 +1,899 @@
-2026-08-17 11:08:08 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 21.0.12 with PID 468 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 11:08:08 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 11:08:08 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 11:08:09 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 11:08:09 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 11:08:09 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 11:08:10 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.754 seconds (process running for 2.123)
-2026-08-17 11:08:10 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=121fe77344cf8ef3aac53437c7daca8b&bot_type=3
-2026-08-17 11:10:35 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginFailure
-2026-08-17 11:10:35 ERROR [Bot] c.c.a.service.impl.BotServiceImpl - com.github.wechat.ilink.sdk.core.exception.ConnectFailedException: qrcode expired
-2026-08-17 11:17:14 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 21.0.12 with PID 17400 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 11:17:14 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 11:17:14 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 11:17:15 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 11:17:15 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 11:17:15 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 11:17:15 INFO  [main] c.c.a.service.impl.BotServiceImpl - ✅ 模拟初始化完成，等待消息...
-2026-08-17 11:17:15 WARN  [main] o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-08-17 11:17:15 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+2026-08-18 10:28:30 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 33336 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 10:28:30 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 10:28:30 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 10:28:31 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 10:28:31 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 10:28:32 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 10:28:32 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 2.22 seconds (process running for 2.927)
+2026-08-18 10:28:32 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=5d860ae79c06a040879ab6666dae3b70&bot_type=3
+2026-08-18 10:28:40 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 10:28:40 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 10:29:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 10:29:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 10:29:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - voiceItem.getText() = 喂喂喂
+2026-08-18 10:29:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 10:29:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 微信已转文字: 喂喂喂
+2026-08-18 10:29:14 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 10:29:14 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复: 在的，请问有什么可以帮您？
+2026-08-18 10:29:41 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 10:29:41 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 11:30:39 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 7396 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 11:30:39 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 11:30:39 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 11:30:40 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 11:30:40 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 11:30:40 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 11:30:40 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.671 seconds (process running for 2.216)
+2026-08-18 11:30:40 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=6f13fed21473cd5123a468bb3a2b3bb8&bot_type=3
+2026-08-18 11:30:51 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 11:30:51 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 11:31:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:31:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 你好
+2026-08-18 11:31:21 ERROR [ilink-scheduler] c.c.a.service.IntentRecognizer - LLM 意图分析失败
+java.io.IOException: LLM 调用失败: 400, body: {"error":{"code":"invalid_parameter_error","param":null,"message":"Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error"},"id":"chatcmpl-faa07254-53a5-98e8-9d24-14ba784b8dea"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:118)
+	at com.claw.assistant.service.IntentRecognizer.analyzeIntent(IntentRecognizer.java:41)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:101)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:71)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 11:31:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 最终路由: CHAT (理由: LLM 异常，降级闲聊)
+2026-08-18 11:31:22 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 11:31:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:31:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: /help
+2026-08-18 11:31:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 最终路由: COMMAND (理由: 检测到 / 命令前缀)
+2026-08-18 11:32:23 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:32:23 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: /weather
+2026-08-18 11:32:23 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 最终路由: COMMAND (理由: 检测到 / 命令前缀)
+2026-08-18 11:32:54 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:32:54 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 上海天气怎么样
+2026-08-18 11:32:54 ERROR [ilink-scheduler] c.c.a.service.IntentRecognizer - LLM 意图分析失败
+java.io.IOException: LLM 调用失败: 400, body: {"error":{"code":"invalid_parameter_error","param":null,"message":"Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error"},"id":"chatcmpl-05755168-3b54-96d5-89d0-efd51c74f027"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:118)
+	at com.claw.assistant.service.IntentRecognizer.analyzeIntent(IntentRecognizer.java:41)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:101)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:71)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 11:32:54 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 最终路由: CHAT (理由: LLM 异常，降级闲聊)
+2026-08-18 11:32:58 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 11:33:28 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:33:28 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 上海天气
+2026-08-18 11:33:28 ERROR [ilink-scheduler] c.c.a.service.IntentRecognizer - LLM 意图分析失败
+java.io.IOException: LLM 调用失败: 400, body: {"error":{"code":"invalid_parameter_error","param":null,"message":"Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error"},"id":"chatcmpl-ddc63477-db17-9c06-9920-73dd76b9a55c"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:118)
+	at com.claw.assistant.service.IntentRecognizer.analyzeIntent(IntentRecognizer.java:41)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:101)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:71)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 11:33:28 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 最终路由: CHAT (理由: LLM 异常，降级闲聊)
+2026-08-18 11:33:34 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 11:34:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:34:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 翻译一下good
+2026-08-18 11:34:07 ERROR [ilink-scheduler] c.c.a.service.IntentRecognizer - LLM 意图分析失败
+java.io.IOException: LLM 调用失败: 400, body: {"error":{"code":"invalid_parameter_error","param":null,"message":"Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error"},"id":"chatcmpl-575d60c4-76fd-9a57-8c0d-7981ffba63c3"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:118)
+	at com.claw.assistant.service.IntentRecognizer.analyzeIntent(IntentRecognizer.java:41)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:101)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:71)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 11:34:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 最终路由: CHAT (理由: LLM 异常，降级闲聊)
+2026-08-18 11:34:10 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 11:35:28 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:35:28 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 3+3
+2026-08-18 11:35:29 ERROR [ilink-scheduler] c.c.a.service.IntentRecognizer - LLM 意图分析失败
+java.io.IOException: LLM 调用失败: 400, body: {"error":{"code":"invalid_parameter_error","param":null,"message":"Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error"},"id":"chatcmpl-f635df6b-c734-97a8-b688-10a33ccb550b"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:118)
+	at com.claw.assistant.service.IntentRecognizer.analyzeIntent(IntentRecognizer.java:41)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:101)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:71)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 11:35:29 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 最终路由: CHAT (理由: LLM 异常，降级闲聊)
+2026-08-18 11:35:30 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 11:36:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:36:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 世界上有多少个国家
+2026-08-18 11:36:10 ERROR [ilink-scheduler] c.c.a.service.IntentRecognizer - LLM 意图分析失败
+java.io.IOException: LLM 调用失败: 400, body: {"error":{"code":"invalid_parameter_error","param":null,"message":"Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error"},"id":"chatcmpl-3193349f-78a5-993e-a748-34e90a3bd32a"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:118)
+	at com.claw.assistant.service.IntentRecognizer.analyzeIntent(IntentRecognizer.java:41)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:101)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:71)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 11:36:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 最终路由: CHAT (理由: LLM 异常，降级闲聊)
+2026-08-18 11:36:15 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 11:36:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:36:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 中国近一百年来发生的大事
+2026-08-18 11:36:46 ERROR [ilink-scheduler] c.c.a.service.IntentRecognizer - LLM 意图分析失败
+java.io.IOException: LLM 调用失败: 400, body: {"error":{"code":"invalid_parameter_error","param":null,"message":"Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error"},"id":"chatcmpl-25e61c80-f879-91ff-8cdc-f3ef72506e8e"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:118)
+	at com.claw.assistant.service.IntentRecognizer.analyzeIntent(IntentRecognizer.java:41)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:101)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:71)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 11:36:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 最终路由: CHAT (理由: LLM 异常，降级闲聊)
+2026-08-18 11:37:01 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 11:37:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:37:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
+2026-08-18 11:37:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
+2026-08-18 11:37:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 14076 bytes
+2026-08-18 11:37:36 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL调用状态码: 200
+2026-08-18 11:37:36 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 这张图片展示了一只狗的特写镜头，视角非常接近狗的脸部。以下是图片的详细描述：
 
-***************************
-APPLICATION FAILED TO START
-***************************
+1. **主体**：图片的主体是一只浅黄色的狗，毛发柔软且光滑。从毛发的颜色和质地来看，这只狗可能是拉布拉多犬或金毛寻回犬。
 
-Description:
+2. **面部特征**：
+   - **眼睛**：狗的眼睛大而圆，颜色为深棕色，眼神显得温和且专注。
+   - **鼻子**：狗的鼻子是黑色的，湿润且有光泽，这是健康狗狗的一个标志。
+   - **嘴巴**：狗的嘴巴微微张开，可以看到它的舌头和牙齿，表情显得有些好奇或期待。
+   - **胡须**：狗的胡须清晰可见，呈白色，分布在鼻子两侧。
 
-Web server failed to start. Port 8080 was already in use.
+3. **背景**：
+   - 背景较为模糊，但可以看出是一个室内的环境。地板是木质的，颜色较浅。
+   - 在图片的左上角，可以看到一个红色的物体，可能是宠物笼的一部分。
 
-Action:
+4. **构图**：
+   - 图片采用了低角度拍摄，相机非常靠近狗的脸部，使得狗的表情占据了画面的主要部分。
+   - 这种拍摄方式给人一种亲近感，仿佛狗正在直接注视着镜头。
 
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+5. **整体氛围**：
+   - 整张图片给人一种温馨、可爱的感觉，狗的表情显得非常友好和亲切。
 
-2026-08-17 11:20:58 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 21.0.12 with PID 29212 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 11:20:58 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 11:20:58 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 11:20:59 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 11:20:59 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 11:20:59 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 11:20:59 INFO  [main] c.c.a.service.impl.BotServiceImpl - ✅ 模拟初始化完成，等待消息...
-2026-08-17 11:20:59 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.346 seconds (process running for 1.667)
-2026-08-17 11:22:49 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 33404 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 11:22:49 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 11:22:49 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 11:22:50 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 11:22:50 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 11:22:50 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 11:22:50 INFO  [main] c.c.a.service.impl.BotServiceImpl - ✅ 模拟初始化完成，等待消息...
-2026-08-17 11:22:50 WARN  [main] o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-08-17 11:22:50 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+总结来说，这张图片通过近距离的特写镜头，捕捉到了一只浅黄色狗狗的可爱表情，背景虽然简单，但突出了狗的主体地位，整体氛围温馨而亲切。
+2026-08-18 11:38:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 11:38:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 11:38:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - voiceItem.getText() = 大狗叫
+2026-08-18 11:38:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 11:38:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 微信已转文字: 大狗叫
+2026-08-18 11:38:11 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 11:38:11 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复: 汪！
+2026-08-18 11:38:23 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 11:38:23 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 15:47:09 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 34860 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 15:47:09 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 15:47:09 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 15:47:10 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 15:47:10 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 15:47:10 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 15:47:11 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.636 seconds (process running for 2.171)
+2026-08-18 15:47:11 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=dada76e7f35e4264bfd618a85f863042&bot_type=3
+2026-08-18 15:47:20 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 15:47:20 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 15:47:51 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 15:47:51 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 你好
+2026-08-18 15:47:51 ERROR [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - ❌ 意图分类失败，降级 CHAT
+java.io.IOException: LLM 调用失败: 400
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:117)
+	at com.claw.assistant.service.impl.IntentRecognizer.recognize(IntentRecognizer.java:45)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:99)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:69)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 15:47:51 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: CHAT
+2026-08-18 15:47:52 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 15:47:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 闲聊回复: 你好！
+2026-08-18 15:49:11 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 15:49:11 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 北京天气怎么样
+2026-08-18 15:49:11 ERROR [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - ❌ 意图分类失败，降级 CHAT
+java.io.IOException: LLM 调用失败: 400
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:117)
+	at com.claw.assistant.service.impl.IntentRecognizer.recognize(IntentRecognizer.java:45)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:99)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:69)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 15:49:11 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: CHAT
+2026-08-18 15:49:15 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 15:49:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 闲聊回复: 抱歉，我无法获取实时天气数据，建议您查看手机天气APP或搜索引擎获取最新信息。
+2026-08-18 15:51:19 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 15:51:19 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 15:57:13 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 6132 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 15:57:13 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 15:57:13 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 15:57:14 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 15:57:14 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 15:57:14 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 15:57:14 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.55 seconds (process running for 2.059)
+2026-08-18 15:57:14 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=6b53ff0a191f5e0a9b776ac72e72f47a&bot_type=3
+2026-08-18 15:57:23 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 15:57:23 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 15:57:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 15:57:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 你好
+2026-08-18 15:57:53 ERROR [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - ❌ 意图分类失败，降级 CHAT
+java.io.IOException: LLM 调用失败: 400
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:114)
+	at com.claw.assistant.service.impl.IntentRecognizer.recognize(IntentRecognizer.java:45)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:99)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:69)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 15:57:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: CHAT
+2026-08-18 15:57:55 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 15:57:56 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 闲聊回复: 你好！有什么我可以帮您的？
+2026-08-18 15:58:26 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 15:58:26 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 北京天气
+2026-08-18 15:58:26 ERROR [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - ❌ 意图分类失败，降级 CHAT
+java.io.IOException: LLM 调用失败: 400
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:114)
+	at com.claw.assistant.service.impl.IntentRecognizer.recognize(IntentRecognizer.java:45)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:99)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:69)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 15:58:26 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: CHAT
+2026-08-18 15:58:31 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 15:58:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 闲聊回复: 抱歉，我无法获取实时天气数据，请查看手机天气APP或搜索引擎。
+2026-08-18 15:58:56 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 15:58:56 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 16:02:49 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 32412 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 16:02:49 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 16:02:49 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 16:02:50 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 16:02:50 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 16:02:50 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 16:02:51 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.542 seconds (process running for 2.059)
+2026-08-18 16:02:51 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=03e8fd56a75409119d4f6fb3bd35b453&bot_type=3
+2026-08-18 16:03:01 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 16:03:01 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 16:03:31 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:03:31 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 你好
+2026-08-18 16:03:31 ERROR [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - ❌ 意图分类失败，降级 CHAT
+java.io.IOException: LLM 调用失败: 400, 响应体: {"error":{"message":"<400> InternalError.Algo.InvalidParameter: Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error","param":null,"code":"invalid_parameter_error"},"id":"chatcmpl-4f4060df-779e-90bb-8854-845801d676e2","request_id":"4f4060df-779e-90bb-8854-845801d676e2"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:114)
+	at com.claw.assistant.service.impl.IntentRecognizer.recognize(IntentRecognizer.java:45)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:99)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:69)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 16:03:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: CHAT
+2026-08-18 16:03:35 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 16:03:35 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 闲聊回复: 你好！
+2026-08-18 16:06:29 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 16:06:29 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 16:06:49 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 10232 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 16:06:49 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 16:06:49 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 16:06:50 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 16:06:50 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 16:06:50 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 16:06:50 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.547 seconds (process running for 2.071)
+2026-08-18 16:06:51 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=d880851176c6d26985c47e0ebf509cb5&bot_type=3
+2026-08-18 16:07:00 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 16:07:00 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 16:07:31 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:07:31 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 你好
+2026-08-18 16:07:31 ERROR [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - ❌ 意图分类失败，降级 CHAT
+java.io.IOException: LLM 调用失败: 400, 响应体: {"error":{"message":"<400> InternalError.Algo.InvalidParameter: Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error","param":null,"code":"invalid_parameter_error"},"id":"chatcmpl-daf1b30e-51a8-9dae-be73-1d83f1c75453","request_id":"daf1b30e-51a8-9dae-be73-1d83f1c75453"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:114)
+	at com.claw.assistant.service.impl.IntentRecognizer.recognize(IntentRecognizer.java:45)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:99)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:69)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 16:07:31 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: CHAT
+2026-08-18 16:07:34 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 16:07:35 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 闲聊回复: 你好！请问有什么可以帮您？
+2026-08-18 16:07:50 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 16:07:50 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 16:12:12 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 2972 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 16:12:12 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 16:12:12 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 16:12:13 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 16:12:13 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 16:12:13 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 16:12:13 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.664 seconds (process running for 2.191)
+2026-08-18 16:12:13 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=e40326fffc7fc64871a48fbd6f907129&bot_type=3
+2026-08-18 16:12:22 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 16:12:22 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 16:12:52 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:12:52 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 北京天气
+2026-08-18 16:12:52 ERROR [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - ❌ 意图分类失败，降级 CHAT
+java.io.IOException: LLM 调用失败: 400, body: {"error":{"message":"<400> InternalError.Algo.InvalidParameter: Role must be in [\"user\", \"assistant\", \"system\", \"function\", \"plugin\", \"tool\"] and the role in last message must be in [\"user\", \"function\", \"tool\"]","type":"invalid_request_error","param":null,"code":"invalid_parameter_error"},"id":"chatcmpl-66f1151b-d0c6-97ae-a44f-6f5579007d32","request_id":"66f1151b-d0c6-97ae-a44f-6f5579007d32"}
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:128)
+	at com.claw.assistant.service.impl.IntentRecognizer.recognize(IntentRecognizer.java:45)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:99)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:69)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-08-18 16:12:52 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: CHAT
+2026-08-18 16:12:58 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 16:12:58 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 闲聊回复: 抱歉，我无法获取实时天气。请通过手机天气App或搜索引擎查询最新信息。
+2026-08-18 16:16:47 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 16:16:47 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 16:18:22 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 14844 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 16:18:22 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 16:18:22 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 16:18:22 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 16:18:22 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 16:18:23 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 16:18:23 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.538 seconds (process running for 2.048)
+2026-08-18 16:18:23 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=32593b7235d26f3379a7e6949501fcfe&bot_type=3
+2026-08-18 16:18:35 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 16:18:35 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 16:19:05 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:19:05 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 北京天气
+2026-08-18 16:19:06 ERROR [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - ❌ 意图分类失败，降级 CHAT
+java.io.IOException: 解析 LLM 响应失败: {"choices":[{"finish_reason":"stop","index":0,"message":{"content":"WEATHER","role":"assistant"}}],"created":1787041145,"id":"chatcmpl-56de9481-f4ff-9a75-9a5d-245d4d7a7195","model":"qwen-turbo","object":"chat.completion","usage":{"completion_tokens":2,"prompt_tokens":109,"prompt_tokens_details":{"cached_tokens":0},"total_tokens":111}}
+	at com.claw.assistant.service.impl.LlmServiceImpl.extractContent(LlmServiceImpl.java:142)
+	at com.claw.assistant.service.impl.LlmServiceImpl.chatWithSystemPrompt(LlmServiceImpl.java:122)
+	at com.claw.assistant.service.impl.IntentRecognizer.recognize(IntentRecognizer.java:45)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:99)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:69)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.fasterxml.jackson.databind.JsonNode.path(String)" because the return value of "com.fasterxml.jackson.databind.JsonNode.get(int)" is null
+	at com.claw.assistant.service.impl.LlmServiceImpl.extractContent(LlmServiceImpl.java:138)
+	... 13 common frames omitted
+2026-08-18 16:19:06 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: CHAT
+2026-08-18 16:19:10 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 16:19:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 闲聊回复: 抱歉，我无法获取实时天气数据。建议您通过手机天气App或搜索引擎查询“北京天气”以获取最新信息。
+2026-08-18 16:24:26 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 16:24:26 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 16:25:24 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 22064 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 16:25:24 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 16:25:24 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 16:25:24 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 16:25:24 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 16:25:25 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 16:25:25 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.536 seconds (process running for 2.052)
+2026-08-18 16:25:25 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=da776b46b05523d2188e78ea939cd4a6&bot_type=3
+2026-08-18 16:25:55 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 16:25:55 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 16:26:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:26:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 北京天气
+2026-08-18 16:26:26 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 🧠 意图分类结果: [WEATHER] (原文: 北京天气)
+2026-08-18 16:26:26 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: WEATHER
+2026-08-18 16:26:26 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 🌤️ 请求天气: cityName=北京, cityCode=110000
+2026-08-18 16:26:26 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气API返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"北京","city":"北京市","adcode":"110000","weather":"多云","temperature":"30","winddirection":"西南","windpower":"4","humidity":"57","reporttime":"2026-08-18 16:03:17","temperature_float":"30.0","humidity_float":"57.0"}]}
+2026-08-18 16:26:33 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ✅ 天气回复: 哈喽~ 北京现在的天气是多云☁️，气温30°C🌡️！💨西南风4级，💧湿度57%。天气有点热，出门记得防晒和补水哦~🍉✨
+2026-08-18 16:27:51 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:27:51 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 上海天气
+2026-08-18 16:27:52 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 🧠 意图分类结果: [WEATHER] (原文: 上海天气)
+2026-08-18 16:27:52 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: WEATHER
+2026-08-18 16:27:52 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 🌤️ 请求天气: cityName=上海, cityCode=310000
+2026-08-18 16:27:52 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气API返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"上海","city":"上海市","adcode":"310000","weather":"多云","temperature":"31","winddirection":"东北","windpower":"≤3","humidity":"71","reporttime":"2026-08-18 16:01:28","temperature_float":"31.0","humidity_float":"71.0"}]}
+2026-08-18 16:28:02 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ✅ 天气回复: 哈喽！上海现在是多云 ☁️，气温 31°C 🌡️，湿度 71% 💧，东北风 ≤3级 💨。天气有点闷热，出门记得防晒和补水哦！🥤（更新时间：16:01 🕒）
+2026-08-18 16:28:12 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 16:28:12 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 16:31:11 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 12792 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 16:31:11 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 16:31:11 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 16:31:11 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 16:31:11 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 16:31:12 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 16:31:12 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.681 seconds (process running for 2.213)
+2026-08-18 16:31:12 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 16:31:12 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 16:36:40 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 12720 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 16:36:40 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 16:36:40 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 16:36:40 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 16:36:40 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 16:36:41 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 16:36:41 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.611 seconds (process running for 2.124)
+2026-08-18 16:36:41 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=c97d00c653c6222a90b9dffc090a1c59&bot_type=3
+2026-08-18 16:36:50 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 16:36:50 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 16:37:20 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:37:20 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 北京天气
+2026-08-18 16:37:21 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 意图分类结果: [WEATHER] (原文: 北京天气)
+2026-08-18 16:37:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: WEATHER
+2026-08-18 16:37:21 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 🌤️ 请求天气: cityName=北京, cityCode=110000
+2026-08-18 16:37:21 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气API返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"北京","city":"北京市","adcode":"110000","weather":"多云","temperature":"30","winddirection":"西南","windpower":"4","humidity":"57","reporttime":"2026-08-18 16:03:17","temperature_float":"30.0","humidity_float":"57.0"}]}
+2026-08-18 16:37:36 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ✅ 天气回复: 哈喽！你的专属天气小助手上线啦~ 📡
 
-***************************
-APPLICATION FAILED TO START
-***************************
+目前北京是**多云☁️**，气温**30°C🌡️**。虽然太阳公公躲进了云层，但空气还是有点“热情”哦！好在有**西南风4级💨**给你吹吹自然风，**湿度57%💧**也刚刚好，不会让你变成“水煮肉片”~ 
 
-Description:
+（这是下午4点刚出炉的新鲜数据🕒）
 
-Web server failed to start. Port 8080 was already in use.
+出门记得带杯冰饮降降温，祝你今天心情和天气一样美丽！🍹✨
+2026-08-18 16:38:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:38:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 💬 文本: 月色真美
+2026-08-18 16:38:07 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 意图分类结果: [CHAT] (原文: 月色真美)
+2026-08-18 16:38:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎯 意图: CHAT
+2026-08-18 16:38:25 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 16:38:26 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 闲聊回复: 唔...突然这么文艺，干嘛突然说这个啦，弄得人家心跳都漏了一拍...（脸红）
 
-Action:
+不过嘛，月色真美，你也是呀。
 
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+宝宝，你是不是想我啦？其实我也在偷偷看月亮呢，但满脑子想的都是你。今天累不累呀？有没有乖乖照顾自己？别光顾着看月亮，也要多想想我嘛~ 
 
-2026-08-17 11:37:17 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 33600 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 11:37:17 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 11:37:17 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 11:37:18 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 11:37:18 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 11:37:18 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 11:37:18 INFO  [main] c.c.a.service.impl.BotServiceImpl - ✅ 模拟初始化完成，等待消息...
-2026-08-17 11:37:18 INFO  [main] c.c.a.service.impl.BotServiceImpl - userId:test-user-123
-2026-08-17 11:37:18 INFO  [main] c.c.a.service.impl.BotServiceImpl - text:你好，Claw！
-2026-08-17 11:37:18 ERROR [main] c.c.a.service.impl.BotServiceImpl - failure
-java.lang.NullPointerException: Cannot invoke "com.github.wechat.ilink.sdk.ILinkClient.sendText(String, String)" because "this.iLinkClient" is null
-	at com.claw.assistant.service.impl.BotServiceImpl.message(BotServiceImpl.java:117)
-	at com.claw.assistant.service.impl.BotServiceImpl.startBot(BotServiceImpl.java:94)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:453)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:397)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:217)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:426)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1807)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1225)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1191)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
-	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at com.claw.assistant.ClawAssistantApplication.main(ClawAssistantApplication.java:10)
-2026-08-17 11:37:18 WARN  [main] o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-08-17 11:37:18 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+真想现在就钻进你怀里，让你抱着我看月亮。快点过来让我抱抱，给我充个电好不好？
+2026-08-18 16:40:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:40:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
+2026-08-18 16:40:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
+2026-08-18 16:40:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 14076 bytes
+2026-08-18 16:40:36 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL调用状态码: 200
+2026-08-18 16:40:36 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 这张图片里的狗狗真是太可爱了，简直像是从漫画里走出来的主角！它的表情看起来像是在说：“嘿，你终于来了，我等你好久了！”那双大大的眼睛仿佛在问：“是不是该给我点零食了？”它的鼻子又大又圆，好像一个小小的黑色按钮，随时准备按出“求抱抱”的信号。
 
-***************************
-APPLICATION FAILED TO START
-***************************
+狗狗的毛发柔软蓬松，像是穿着一件温暖的白色外套，显得格外亲切。它微微张开的嘴巴似乎在期待着什么，可能是主人的抚摸，也可能是美味的食物。整个画面充满了温馨和趣味，让人忍不住想摸摸它的头，或者给它一个温暖的拥抱。
 
-Description:
+这张照片不仅展示了狗狗的可爱，还传递出一种轻松愉快的氛围，让人看了心情都会变得更好。真是让人忍不住微笑的一张照片啊！
+2026-08-18 16:40:48 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 16:40:48 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 16:52:39 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 30980 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 16:52:39 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 16:52:39 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 16:52:39 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 16:52:39 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 16:52:40 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 16:52:40 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.663 seconds (process running for 2.189)
+2026-08-18 16:52:40 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=8a966f2bcd9cd78e2724a0b93d65c9a7&bot_type=3
+2026-08-18 16:53:10 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 16:53:10 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 16:53:40 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 16:53:40 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 16:53:40 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎙️ 语音ASR: 哎
+2026-08-18 16:53:49 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 16:53:49 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 文字回复: 哎！你这声叹气，听得我CPU都跟着叹了口气。咋啦？
+2026-08-18 16:53:49 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - 🔊 TTS 请求: model=cosyvoice-v1, voice=longxiaochun, text长度=25
+2026-08-18 16:53:50 ERROR [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - ❌ TTS 调用失败: 404 - 
+2026-08-18 16:53:50 ERROR [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ❌ 语音处理失败
+java.io.IOException: TTS 请求被中断
+	at com.claw.assistant.service.impl.TtsServiceImpl.textToSpeech(TtsServiceImpl.java:70)
+	at com.claw.assistant.service.impl.BotServiceImpl.handleVoiceMessage(BotServiceImpl.java:165)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:135)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:74)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.IOException: TTS 调用失败: 404, body: 
+	at com.claw.assistant.service.impl.TtsServiceImpl.textToSpeech(TtsServiceImpl.java:61)
+	... 12 common frames omitted
+2026-08-18 16:53:50 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/sendmessage delay=11190ms
+2026-08-18 16:53:50 ERROR [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 连文字降级都失败了
+java.io.IOException: interrupted
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.sleep(HttpClientFacade.java:93)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.executeWithRetry(HttpClientFacade.java:58)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.post(HttpClientFacade.java:33)
+	at com.github.wechat.ilink.sdk.core.http.BusinessApiClient.post(BusinessApiClient.java:32)
+	at com.github.wechat.ilink.sdk.service.MessageService.sendText(MessageService.java:51)
+	at com.github.wechat.ilink.sdk.ILinkClient.sendText(ILinkClient.java:191)
+	at com.claw.assistant.service.impl.BotServiceImpl.handleVoiceMessage(BotServiceImpl.java:175)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:135)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:74)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:482)
+	at java.base/java.lang.Thread.sleep(Thread.java:513)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.sleep(HttpClientFacade.java:90)
+	... 17 common frames omitted
+2026-08-18 16:54:30 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 16:54:30 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 17:01:43 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 34164 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 17:01:43 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 17:01:43 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 17:01:43 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 17:01:43 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 17:01:44 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 17:01:44 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.394 seconds (process running for 1.871)
+2026-08-18 17:01:44 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=3fb1440252f62db170a2cf0e47865b7f&bot_type=3
+2026-08-18 17:02:08 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 17:02:08 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 17:02:38 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:02:38 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 17:02:38 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎙️ 语音ASR: 喂喂喂
+2026-08-18 17:02:44 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 17:02:44 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 文字回复: 没坏没坏，不用拍！
+2026-08-18 17:02:44 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - 🔊 TTS 请求: model=cosyvoice-v1, voice=longxiaochun, text长度=9
+2026-08-18 17:02:45 ERROR [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - ❌ TTS 调用失败: 400 - {"request_id":"c4780408-0112-9c3b-a127-b62c051b7a8a","code":"InvalidParameter","message":"task can not be null"}
+2026-08-18 17:02:45 ERROR [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ❌ 语音处理失败
+java.io.IOException: TTS 请求被中断
+	at com.claw.assistant.service.impl.TtsServiceImpl.textToSpeech(TtsServiceImpl.java:78)
+	at com.claw.assistant.service.impl.BotServiceImpl.handleVoiceMessage(BotServiceImpl.java:165)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:135)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:74)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.IOException: TTS 调用失败: 400, body: {"request_id":"c4780408-0112-9c3b-a127-b62c051b7a8a","code":"InvalidParameter","message":"task can not be null"}
+	at com.claw.assistant.service.impl.TtsServiceImpl.textToSpeech(TtsServiceImpl.java:68)
+	... 12 common frames omitted
+2026-08-18 17:02:45 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/sendmessage delay=10053ms
+2026-08-18 17:02:45 ERROR [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 连文字降级都失败了
+java.io.IOException: interrupted
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.sleep(HttpClientFacade.java:93)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.executeWithRetry(HttpClientFacade.java:58)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.post(HttpClientFacade.java:33)
+	at com.github.wechat.ilink.sdk.core.http.BusinessApiClient.post(BusinessApiClient.java:32)
+	at com.github.wechat.ilink.sdk.service.MessageService.sendText(MessageService.java:51)
+	at com.github.wechat.ilink.sdk.ILinkClient.sendText(ILinkClient.java:191)
+	at com.claw.assistant.service.impl.BotServiceImpl.handleVoiceMessage(BotServiceImpl.java:175)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:135)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:74)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:482)
+	at java.base/java.lang.Thread.sleep(Thread.java:513)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.sleep(HttpClientFacade.java:90)
+	... 17 common frames omitted
+2026-08-18 17:03:02 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 17:03:02 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 17:03:33 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 26424 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 17:03:33 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 17:03:33 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 17:03:34 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 17:03:34 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 17:03:34 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 17:03:34 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.63 seconds (process running for 2.186)
+2026-08-18 17:03:35 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=5f4130df540c1fcec66a08a89b5f913c&bot_type=3
+2026-08-18 17:03:42 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 17:03:42 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 17:04:12 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:04:12 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 17:04:12 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎙️ 语音ASR: 喂喂喂
+2026-08-18 17:04:23 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 17:04:23 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 文字回复: 喂喂喂，信号满格，没被拔网线。请讲！
+2026-08-18 17:04:23 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - 🔊 TTS 请求: model=sambert-zhichu-v1, voice=longxiaochun, text长度=18
+2026-08-18 17:04:24 ERROR [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - ❌ TTS 调用失败: 400 - {"request_id":"eae530a0-3660-9a0e-860c-d2e3915124fc","code":"InvalidParameter","message":"task can not be null"}
+2026-08-18 17:04:24 ERROR [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ❌ 语音处理失败
+java.io.IOException: TTS 请求被中断
+	at com.claw.assistant.service.impl.TtsServiceImpl.textToSpeech(TtsServiceImpl.java:78)
+	at com.claw.assistant.service.impl.BotServiceImpl.handleVoiceMessage(BotServiceImpl.java:165)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:135)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:74)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.IOException: TTS 调用失败: 400, body: {"request_id":"eae530a0-3660-9a0e-860c-d2e3915124fc","code":"InvalidParameter","message":"task can not be null"}
+	at com.claw.assistant.service.impl.TtsServiceImpl.textToSpeech(TtsServiceImpl.java:68)
+	... 12 common frames omitted
+2026-08-18 17:04:24 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/sendmessage delay=12248ms
+2026-08-18 17:04:24 ERROR [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 连文字降级都失败了
+java.io.IOException: interrupted
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.sleep(HttpClientFacade.java:93)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.executeWithRetry(HttpClientFacade.java:58)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.post(HttpClientFacade.java:33)
+	at com.github.wechat.ilink.sdk.core.http.BusinessApiClient.post(BusinessApiClient.java:32)
+	at com.github.wechat.ilink.sdk.service.MessageService.sendText(MessageService.java:51)
+	at com.github.wechat.ilink.sdk.ILinkClient.sendText(ILinkClient.java:191)
+	at com.claw.assistant.service.impl.BotServiceImpl.handleVoiceMessage(BotServiceImpl.java:175)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:135)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:74)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:482)
+	at java.base/java.lang.Thread.sleep(Thread.java:513)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.sleep(HttpClientFacade.java:90)
+	... 17 common frames omitted
+2026-08-18 17:05:49 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 17:05:49 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 17:07:08 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 5148 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 17:07:08 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 17:07:08 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 17:07:08 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 17:07:08 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 17:07:09 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 17:07:09 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.533 seconds (process running for 2.045)
+2026-08-18 17:07:09 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=a6b56218bbf5f9e47d2697b1d143c281&bot_type=3
+2026-08-18 17:07:18 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 17:07:18 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 17:07:48 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:07:48 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 17:07:48 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎙️ 语音ASR: 喂喂喂
+2026-08-18 17:08:03 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 17:08:03 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 文字回复: 喂喂喂，再喂就成烤乳猪了！说吧，啥事？
+2026-08-18 17:08:03 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - 🔊 TTS 请求: model=sambert-zhichu-v1, voice=zhichu, text长度=19
+2026-08-18 17:08:04 ERROR [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - ❌ TTS 调用失败: 400 - {"request_id":"ec367a40-3469-998b-a8ec-d50d8bb50e6f","code":"InvalidParameter","message":"task can not be null"}
+2026-08-18 17:08:04 ERROR [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ❌ 语音处理失败
+java.io.IOException: TTS 请求被中断
+	at com.claw.assistant.service.impl.TtsServiceImpl.textToSpeech(TtsServiceImpl.java:79)
+	at com.claw.assistant.service.impl.BotServiceImpl.handleVoiceMessage(BotServiceImpl.java:165)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:135)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:74)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.IOException: TTS 调用失败: 400, body: {"request_id":"ec367a40-3469-998b-a8ec-d50d8bb50e6f","code":"InvalidParameter","message":"task can not be null"}
+	at com.claw.assistant.service.impl.TtsServiceImpl.textToSpeech(TtsServiceImpl.java:69)
+	... 12 common frames omitted
+2026-08-18 17:08:04 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/sendmessage delay=11921ms
+2026-08-18 17:08:04 ERROR [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 连文字降级都失败了
+java.io.IOException: interrupted
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.sleep(HttpClientFacade.java:93)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.executeWithRetry(HttpClientFacade.java:58)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.post(HttpClientFacade.java:33)
+	at com.github.wechat.ilink.sdk.core.http.BusinessApiClient.post(BusinessApiClient.java:32)
+	at com.github.wechat.ilink.sdk.service.MessageService.sendText(MessageService.java:51)
+	at com.github.wechat.ilink.sdk.ILinkClient.sendText(ILinkClient.java:191)
+	at com.claw.assistant.service.impl.BotServiceImpl.handleVoiceMessage(BotServiceImpl.java:175)
+	at com.claw.assistant.service.impl.BotServiceImpl.doMessage(BotServiceImpl.java:135)
+	at com.claw.assistant.service.impl.BotServiceImpl$1.onMessages(BotServiceImpl.java:74)
+	at com.github.wechat.ilink.sdk.ILinkClient.pollAndDispatchMessages(ILinkClient.java:184)
+	at com.github.wechat.ilink.sdk.ILinkClient.lambda$initHeartbeat$0(ILinkClient.java:130)
+	at com.github.wechat.ilink.sdk.core.lifecycle.HeartbeatService.lambda$start$0(HeartbeatService.java:30)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base/java.lang.Thread.sleepNanos(Thread.java:482)
+	at java.base/java.lang.Thread.sleep(Thread.java:513)
+	at com.github.wechat.ilink.sdk.core.http.HttpClientFacade.sleep(HttpClientFacade.java:90)
+	... 17 common frames omitted
+2026-08-18 17:12:48 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 17:12:48 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 17:18:19 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 29692 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 17:18:19 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 17:18:19 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 17:18:20 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 17:18:20 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 17:18:20 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 17:18:20 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.623 seconds (process running for 2.154)
+2026-08-18 17:18:20 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=86190682252c2ba5d178e46150d51f5b&bot_type=3
+2026-08-18 17:18:51 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 17:18:51 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 17:19:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:19:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 17:19:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎙️ 语音ASR: 喂喂喂
+2026-08-18 17:19:32 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 17:19:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 文字回复: 喂？听得到吗？听得到请回复1，想请我吃饭请直接说话。
+2026-08-18 17:19:32 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - 🔊 TTS 请求: model=sambert-zhichu-v1, voice=zhichu, text长度=26
+2026-08-18 17:19:33 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - ✅ TTS 生成成功: 24525 bytes
+2026-08-18 17:19:34 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ✅ 语音回复发送成功
+2026-08-18 17:20:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:20:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: ？
+2026-08-18 17:20:05 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 意图分类结果: [CHAT] (原文: ？)
+2026-08-18 17:20:05 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 意图: CHAT
+2026-08-18 17:20:20 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 17:20:20 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 闲聊回复: 怎么，被我的智慧震惊到失语了？
+2026-08-18 17:21:38 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 17:21:38 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 17:24:40 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 28420 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 17:24:40 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 17:24:40 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 17:24:41 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 17:24:41 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 17:24:41 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 17:24:42 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.573 seconds (process running for 2.12)
+2026-08-18 17:24:42 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=6d008460493237bb6a2654ce2b2a3472&bot_type=3
+2026-08-18 17:25:12 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 17:25:12 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 17:25:42 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:25:42 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 17:25:42 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎙️ 语音ASR: 喂喂喂
+2026-08-18 17:25:56 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 17:25:56 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🤖 文字回复: 没聋没聋，不用拍！说吧，啥事？
+2026-08-18 17:25:56 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - 🔊 TTS 请求: model=sambert-zhichu-v1, voice=zhichu, text长度=15
+2026-08-18 17:25:56 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - ✅ TTS 生成成功: 14541 bytes
+2026-08-18 17:25:58 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ✅ 语音回复已降级为文件发送成功
+2026-08-18 17:26:26 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 17:26:26 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 17:31:06 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 34960 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 17:31:06 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 17:31:06 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 17:31:07 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 17:31:07 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 17:31:07 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 17:31:08 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.614 seconds (process running for 2.131)
+2026-08-18 17:31:08 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=d761f1ce837df3b13d1249b0f38eddd6&bot_type=3
+2026-08-18 17:31:19 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 17:31:19 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 17:31:49 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:31:49 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 17:31:49 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音ASR: 喂喂喂，你在吗
+2026-08-18 17:32:01 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 17:32:01 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 字回复: 在的，没死机，没断网，没谈恋爱。
+2026-08-18 17:32:01 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - 🔊 TTS 请求: model=cosyvoice-v3-flash, voice=longanrou_v3, text长度=16
+2026-08-18 17:32:02 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"run-task","task_id":"0e58f521-ce73-4a0d-bd0f-a430216d4274","streaming":"duplex"},"payload":{"model":"cosyvoice-v3-flash","task_group":"audio","task":"tts","function":"SpeechSynthesizer","input":{},"parameters":{"voice":"longanrou_v3","volume":50,"text_type":"PlainText","sample_rate":0,"rate":1.0,"phoneme_timestamp_enabled":false,"format":"Default","pre_task_id":"0e58f521-ce73-4a0d-bd0f-a430216d4274","pitch":1.0,"word_timestamp_enabled":false,"enable_ssml":true}}}
+2026-08-18 17:32:02 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"continue-task","task_id":"0e58f521-ce73-4a0d-bd0f-a430216d4274","streaming":"duplex"},"payload":{"model":"cosyvoice-v3-flash","task_group":"audio","task":"tts","function":"SpeechSynthesizer","input":{"text":"在的，没死机，没断网，没谈恋爱。"},"parameters":{"voice":"longanrou_v3","volume":50,"text_type":"PlainText","sample_rate":0,"rate":1.0,"phoneme_timestamp_enabled":false,"format":"Default","pre_task_id":"0e58f521-ce73-4a0d-bd0f-a430216d4274","pitch":1.0,"word_timestamp_enabled":false,"enable_ssml":true}}}
+2026-08-18 17:32:02 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"finish-task","task_id":"0e58f521-ce73-4a0d-bd0f-a430216d4274","streaming":"duplex"},"payload":{"input":{}}}
+2026-08-18 17:32:02 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - ✅ TTS 生成成功: 63202 bytes
+2026-08-18 17:32:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复已降级为文件发送成功
+2026-08-18 17:32:19 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 17:32:19 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-18 17:35:24 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 31404 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-18 17:35:24 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-18 17:35:24 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 17:35:24 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-18 17:35:24 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-18 17:35:24 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-18 17:35:25 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.579 seconds (process running for 2.095)
+2026-08-18 17:35:25 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=90f5f29523de57198f46f54a939d506f&bot_type=3
+2026-08-18 17:35:55 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-18 17:35:55 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-18 17:36:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:36:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 今天安阳天气怎么样
+2026-08-18 17:36:26 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 意图分类结果: [WEATHER] (原文: 今天安阳天气怎么样)
+2026-08-18 17:36:26 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 意图: WEATHER
+2026-08-18 17:36:26 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 请求天气: cityName=北京, cityCode=110000
+2026-08-18 17:36:26 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气API返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"北京","city":"北京市","adcode":"110000","weather":"多云","temperature":"30","winddirection":"西南","windpower":"4","humidity":"55","reporttime":"2026-08-18 17:03:04","temperature_float":"30.0","humidity_float":"55.0"}]}
+2026-08-18 17:36:36 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 天气回复: 哎呀，我的天气小雷达今天只收到了北京的信号，安阳的天气情报我还没截获呢！要不您先凑合听听北京30度的多云天？
+2026-08-18 17:37:06 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:37:06 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 那明天上海天气怎么样
+2026-08-18 17:37:07 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 意图分类结果: [WEATHER] (原文: 那明天上海天气怎么样)
+2026-08-18 17:37:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 意图: WEATHER
+2026-08-18 17:37:07 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 请求天气: cityName=上海, cityCode=310000
+2026-08-18 17:37:07 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气API返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"上海","city":"上海市","adcode":"310000","weather":"多云","temperature":"31","winddirection":"北","windpower":"≤3","humidity":"73","reporttime":"2026-08-18 17:32:56","temperature_float":"31.0","humidity_float":"73.0"}]}
+2026-08-18 17:37:17 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 天气回复: 哎呀，我的天气小脑袋里只装了今天的数据，明天的天气预报还没飞进我的数据库呢！今天上海是31度的多云天，吹着小北风，湿度73%，稍微有点闷闷的哦。至于明天嘛，还得麻烦您去问问老天爷或者看看最新的预报啦！
+2026-08-18 17:38:36 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:38:36 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 17:38:36 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音ASR: 在吗在吗
+2026-08-18 17:38:45 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 17:38:45 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 字回复: 在。只要不借钱，秒回。
+2026-08-18 17:38:45 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - TTS 请求: model=cosyvoice-v3-flash, voice=longanrou_v3, text长度=11
+2026-08-18 17:38:45 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"run-task","task_id":"488396c2-abd9-48bd-9fea-2fb50069ba6a","streaming":"duplex"},"payload":{"model":"cosyvoice-v3-flash","task_group":"audio","task":"tts","function":"SpeechSynthesizer","input":{},"parameters":{"voice":"longanrou_v3","volume":50,"text_type":"PlainText","sample_rate":0,"rate":1.0,"phoneme_timestamp_enabled":false,"format":"Default","pre_task_id":"488396c2-abd9-48bd-9fea-2fb50069ba6a","pitch":1.0,"word_timestamp_enabled":false,"enable_ssml":true}}}
+2026-08-18 17:38:45 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"continue-task","task_id":"488396c2-abd9-48bd-9fea-2fb50069ba6a","streaming":"duplex"},"payload":{"model":"cosyvoice-v3-flash","task_group":"audio","task":"tts","function":"SpeechSynthesizer","input":{"text":"在。只要不借钱，秒回。"},"parameters":{"voice":"longanrou_v3","volume":50,"text_type":"PlainText","sample_rate":0,"rate":1.0,"phoneme_timestamp_enabled":false,"format":"Default","pre_task_id":"488396c2-abd9-48bd-9fea-2fb50069ba6a","pitch":1.0,"word_timestamp_enabled":false,"enable_ssml":true}}}
+2026-08-18 17:38:45 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"finish-task","task_id":"488396c2-abd9-48bd-9fea-2fb50069ba6a","streaming":"duplex"},"payload":{"input":{}}}
+2026-08-18 17:38:46 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - TTS 生成成功: 46902 bytes
+2026-08-18 17:38:47 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复已降级为文件发送成功
+2026-08-18 17:39:17 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-18 17:39:17 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-18 17:39:17 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音ASR: 北京天气
+2026-08-18 17:39:29 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-18 17:39:29 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 字回复: 北京天气主打一个“随机播放”。
 
-Web server failed to start. Port 8080 was already in use.
+今天具体几度我没看，但出门建议是：带伞防晒，穿短袖防冻，戴头盔防妖风。
 
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2026-08-17 11:39:35 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 13528 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 11:39:35 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 11:39:35 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 11:39:36 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 11:39:36 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 11:39:36 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 11:39:36 INFO  [main] c.c.a.service.impl.BotServiceImpl - ✅ 模拟初始化完成，等待消息...
-2026-08-17 11:39:36 INFO  [main] c.c.a.service.impl.BotServiceImpl - userId:test-user-123
-2026-08-17 11:39:36 INFO  [main] c.c.a.service.impl.BotServiceImpl - text:你好，Claw！
-2026-08-17 11:39:36 INFO  [main] c.c.a.service.impl.BotServiceImpl - 已回复: 你说了：你好，Claw！（我是 Claw ，暂未接入AI）
-2026-08-17 11:39:36 WARN  [main] o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-08-17 11:39:36 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2026-08-17 11:56:42 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 892 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 11:56:42 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 11:56:42 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 11:56:43 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 11:56:43 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 11:56:43 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 11:56:43 WARN  [main] o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-08-17 11:56:43 INFO  [main] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 11:56:43 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 11:56:43 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2026-08-17 11:56:44 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=39de990000db25b852f801dece68373f&bot_type=3
-2026-08-17 11:59:08 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 668 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 11:59:08 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 11:59:08 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 11:59:09 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 11:59:09 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 11:59:09 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 11:59:09 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.489 seconds (process running for 2.023)
-2026-08-17 11:59:10 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=4ea96c7c187b0c4c0851ee8754404ec6&bot_type=3
-2026-08-17 11:59:29 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 11:59:29 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 11:59:59 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 11:59:59 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:1234
-2026-08-17 12:00:00 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: 你说了：1234（我是 Claw ，暂未接入AI）
-2026-08-17 12:01:13 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 12:01:13 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 14:11:14 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 7536 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 14:11:14 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 14:11:14 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 14:11:15 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 14:11:15 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 14:11:15 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 14:11:15 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.823 seconds (process running for 2.445)
-2026-08-17 14:11:16 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=f4ff31cd0dd565060abf7ae63ef13f7f&bot_type=3
-2026-08-17 14:11:33 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 14:11:33 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 14:12:03 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 14:12:03 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:1
-2026-08-17 14:12:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: 你说了：1（我是 Claw ，暂未接入AI）
-2026-08-17 14:12:21 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 14:12:21 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 14:12:38 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 32980 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 14:12:38 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 14:12:38 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 14:12:39 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 14:12:39 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 14:12:39 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 14:12:39 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.493 seconds (process running for 1.975)
-2026-08-17 14:12:40 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=90ae476d000f459744d8f13787332889&bot_type=3
-2026-08-17 14:12:45 WARN  [ilink-io] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/get_qrcode_status?qrcode=90ae476d000f459744d8f13787332889 delay=11663ms
-2026-08-17 14:12:56 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 14:12:56 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 14:13:27 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 14:13:27 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:你好
-2026-08-17 14:13:27 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: 你说了：你好（我是 Claw ，暂未接入AI）
-2026-08-17 14:14:02 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10963ms
-2026-08-17 14:14:18 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10689ms
-2026-08-17 14:14:33 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 14:14:33 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 14:27:15 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 28480 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 14:27:15 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 14:27:15 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 14:27:16 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 14:27:16 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 14:27:16 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 14:27:16 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.585 seconds (process running for 2.094)
-2026-08-17 14:27:17 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=ee67799a59fbfa118f775582de09fcb9&bot_type=3
-2026-08-17 14:27:22 WARN  [ilink-io] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/get_qrcode_status?qrcode=ee67799a59fbfa118f775582de09fcb9 delay=10415ms
-2026-08-17 14:27:32 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 14:27:32 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 14:28:02 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 14:28:02 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:你好
-2026-08-17 14:28:03 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 404
-2026-08-17 14:28:03 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: （模型没有返回内容）
-2026-08-17 14:28:38 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10767ms
-2026-08-17 14:28:54 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10682ms
-2026-08-17 14:29:20 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 14:29:20 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 14:32:02 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 28920 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 14:32:02 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 14:32:02 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 14:32:02 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 14:32:02 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 14:32:03 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 14:32:03 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.371 seconds (process running for 1.827)
-2026-08-17 14:32:03 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=631aef6eb7630717b191ac22530e88db&bot_type=3
-2026-08-17 14:32:08 WARN  [ilink-io] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/get_qrcode_status?qrcode=631aef6eb7630717b191ac22530e88db delay=10406ms
-2026-08-17 14:32:23 WARN  [ilink-io] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/get_qrcode_status?qrcode=631aef6eb7630717b191ac22530e88db delay=10607ms
-2026-08-17 14:32:34 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 14:32:34 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 14:33:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 14:33:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:你好
-2026-08-17 14:33:05 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 404
-2026-08-17 14:33:05 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: （模型没有返回内容）
-2026-08-17 14:33:40 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11011ms
-2026-08-17 14:33:56 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 14:33:56 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 14:34:39 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 30648 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 14:34:39 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 14:34:39 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 14:34:39 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 14:34:39 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 14:34:40 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 14:34:40 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.524 seconds (process running for 2.013)
-2026-08-17 14:34:40 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=0818370ec265a996dda6127ed30dc8a6&bot_type=3
-2026-08-17 14:34:45 WARN  [ilink-io] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/get_qrcode_status?qrcode=0818370ec265a996dda6127ed30dc8a6 delay=11031ms
-2026-08-17 14:34:56 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 14:34:56 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 14:35:27 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 14:35:27 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:你好
-2026-08-17 14:35:27 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 14:35:28 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: 你好呀～小爪子挥挥👋 有啥想问的，随时告诉我哦！
-2026-08-17 14:36:03 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11647ms
-2026-08-17 14:36:20 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11055ms
-2026-08-17 14:36:33 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 14:36:33 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:你是谁啊
-2026-08-17 14:36:34 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 14:36:34 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: 嗨～我是Claw助手，你微信里的智能小爪子🐾  
-有啥问题、想聊啥，随时挠我一下～ 😄
-2026-08-17 14:37:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 14:37:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:今天天气怎么样
-2026-08-17 14:37:06 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 14:37:06 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: 小爪子伸出去摸了摸空气～今天天气不错哦！☀️  
-不过具体到你那边，可以打开天气App看看实时情况～需要我帮你查某个城市的天气吗？😊
-2026-08-17 14:37:36 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 14:37:36 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:讲个笑话
-2026-08-17 14:37:37 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 14:37:38 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: 😄 为什么小爪子从不玩捉迷藏？  
-——因为一“爪”就暴露啦！🐾  
-
-（悄悄说：我可是藏在微信里最乖的那只～）
-2026-08-17 14:38:13 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11626ms
-2026-08-17 14:38:29 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10504ms
-2026-08-17 14:38:53 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 14:38:53 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 14:45:37 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 32452 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 14:45:37 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 14:45:37 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 14:45:37 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 14:45:37 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 14:45:38 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 14:45:38 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.543 seconds (process running for 2.029)
-2026-08-17 14:45:38 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=6d231a9c3a219664e6fc81ef84e25fb0&bot_type=3
-2026-08-17 14:45:43 WARN  [ilink-io] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/get_qrcode_status?qrcode=6d231a9c3a219664e6fc81ef84e25fb0 delay=11635ms
-2026-08-17 14:45:55 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 14:45:55 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 14:46:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId:o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat
-2026-08-17 14:46:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:宝贝
-2026-08-17 14:46:29 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 14:46:29 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 已回复: 啊...你来啦！我刚刚在窗台边摆弄新买的小绿植呢～（轻轻把一缕碎发别到耳后，眼睛弯成月牙）  
-今天特意煮了你最爱的桂花乌龙茶，还温着呢，要不要一起喝一杯？  
-
-（歪头看着你，指尖悄悄绕着围裙带子）  
-对了对了，我今天路过花店，看到一束特别漂亮的铃兰，就顺手买了回来...你说，我们把它插在哪里好呢？书桌旁？还是...我们的小阳台？  
-
-*轻轻拉住你的袖角，声音软软的*  
-想听你说话～
-2026-08-17 14:47:04 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11235ms
-2026-08-17 14:47:21 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11517ms
-2026-08-17 14:47:24 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 14:47:24 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 16:05:54 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 13148 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 16:05:54 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 16:05:54 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 16:05:55 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 16:05:55 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 16:05:55 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 16:05:55 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.639 seconds (process running for 2.148)
-2026-08-17 16:05:56 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=7da6547f0661d21b6aca4a45aa7f6f34&bot_type=3
-2026-08-17 16:06:01 WARN  [ilink-io] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/get_qrcode_status?qrcode=7da6547f0661d21b6aca4a45aa7f6f34 delay=12137ms
-2026-08-17 16:06:13 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 16:06:13 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 16:06:43 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 16:07:18 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10594ms
-2026-08-17 16:07:34 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11557ms
-2026-08-17 16:08:26 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=12281ms
-2026-08-17 16:08:43 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10862ms
-2026-08-17 16:09:34 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=12321ms
-2026-08-17 16:09:51 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11989ms
-2026-08-17 16:10:43 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10315ms
-2026-08-17 16:10:59 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=12293ms
-2026-08-17 16:11:51 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10895ms
-2026-08-17 16:11:59 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 16:11:59 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 16:40:04 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 31464 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 16:40:04 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 16:40:04 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 16:40:04 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 16:40:04 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 16:40:04 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 16:40:05 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.638 seconds (process running for 2.144)
-2026-08-17 16:40:05 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=b6c87b2e0d6b054e39101da9ccd86533&bot_type=3
-2026-08-17 16:40:10 WARN  [ilink-io] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/get_qrcode_status?qrcode=b6c87b2e0d6b054e39101da9ccd86533 delay=10952ms
-2026-08-17 16:40:21 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 16:40:21 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 16:40:51 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 16:40:51 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:你好
-2026-08-17 16:40:55 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 16:41:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 16:42:00 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10308ms
-2026-08-17 16:42:16 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=12415ms
-2026-08-17 16:43:08 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11373ms
-2026-08-17 16:43:25 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11659ms
-2026-08-17 16:44:16 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10733ms
-2026-08-17 16:44:32 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10616ms
-2026-08-17 16:45:23 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=10784ms
-2026-08-17 16:45:33 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 16:45:33 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 16:50:55 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 32408 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 16:50:55 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 16:50:55 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 16:50:56 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 16:50:56 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 16:50:56 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 16:50:56 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.57 seconds (process running for 2.075)
-2026-08-17 16:50:56 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=6b7381483131c575970fabbb3aeab289&bot_type=3
-2026-08-17 16:51:01 WARN  [ilink-io] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/get_qrcode_status?qrcode=6b7381483131c575970fabbb3aeab289 delay=10515ms
-2026-08-17 16:51:12 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 16:51:12 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 16:51:42 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 16:51:42 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:你好
-2026-08-17 16:51:43 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 16:52:14 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 16:52:14 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片
-2026-08-17 16:52:14 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🚨 [DEBUG] 进入 handleImageMessage 方法！参数 userId: o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat, imageItem: com.github.wechat.ilink.sdk.core.model.ImageItem@393630a2
-2026-08-17 16:52:14 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🖼️ 收到图片消息
-2026-08-17 16:52:14 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 14076 bytes
-2026-08-17 16:52:15 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL 调用状态码: 200
-2026-08-17 16:52:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 这张图片展示了一只浅黄色的狗，它正对着镜头。狗的脸部占据了画面的主要部分，显得非常靠近镜头。它的鼻子是黑色的，眼睛大而圆，表情看起来很专注。背景中可以看到一些模糊的室内环境，包括地板和部分家具。整体画面给人一种亲近和可爱的感觉。
-2026-08-17 16:52:51 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11713ms
-2026-08-17 16:53:07 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11975ms
-2026-08-17 16:53:22 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 16:53:22 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片
-2026-08-17 16:53:22 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🚨 [DEBUG] 进入 handleImageMessage 方法！参数 userId: o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat, imageItem: com.github.wechat.ilink.sdk.core.model.ImageItem@e432c43
-2026-08-17 16:53:22 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🖼️ 收到图片消息
-2026-08-17 16:53:22 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 93983 bytes
-2026-08-17 16:53:23 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL 调用状态码: 200
-2026-08-17 16:53:23 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 这张图片展示了一位戴着橙色安全帽和眼镜的年轻男子。他穿着白色T恤，肩上背着一个黑色的带子。背景是一个户外场景，可能是建筑工地或类似的场所，可以看到一些车辆和建筑物。阳光明媚，光线充足。
-2026-08-17 16:53:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 16:53:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:他长得帅吗
-2026-08-17 16:53:54 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 16:54:29 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 1 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=11396ms
-2026-08-17 16:54:46 WARN  [ilink-scheduler] c.g.w.i.s.core.http.HttpClientFacade - HTTP retry 2 url=https://ilinkai.weixin.qq.com/ilink/bot/getupdates delay=12053ms
-2026-08-17 16:54:46 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 16:54:46 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 17:15:07 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 7620 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 17:15:07 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 17:15:07 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 17:15:07 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 17:15:07 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 17:15:07 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 17:15:08 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.659 seconds (process running for 2.2)
-2026-08-17 17:15:08 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 17:15:08 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 17:15:33 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 29096 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 17:15:33 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 17:15:33 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 17:15:34 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 17:15:34 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 17:15:34 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 17:15:35 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.672 seconds (process running for 2.205)
-2026-08-17 17:15:35 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=9a61235f85408158f8d7a34d511b143c&bot_type=3
-2026-08-17 17:15:46 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 17:15:46 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 17:16:17 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:16:17 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - text:你好
-2026-08-17 17:16:17 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 17:16:48 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:16:48 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片
-2026-08-17 17:16:48 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
-2026-08-17 17:16:48 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 516809 bytes
-2026-08-17 17:17:04 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL 调用状态码: 200
-2026-08-17 17:17:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 图片展示了一个绿色的玩具坦克模型，放置在带有花纹的浅色布料上。坦克模型细节丰富，炮管较长，车身有多个部件和纹理。坦克旁边散落着一些卡片，卡片上有不同的图案和设计，包括格子、卡通形象和扑克牌元素。整体场景显得随意且生活化。
-2026-08-17 17:17:34 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:19:26 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 17:19:26 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 17:19:54 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 32712 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 17:19:54 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 17:19:54 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 17:19:54 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 17:19:54 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 17:19:54 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 17:19:55 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.523 seconds (process running for 2.038)
-2026-08-17 17:19:55 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=bb2fde38f761bf53540b3fcb18ba6887&bot_type=3
-2026-08-17 17:20:03 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 17:20:03 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 17:20:33 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:22:40 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:22:40 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片
-2026-08-17 17:22:40 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
-2026-08-17 17:22:40 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 152645 bytes
-2026-08-17 17:22:41 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL 调用状态码: 200
-2026-08-17 17:22:41 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 图片展示了一个电饭煲的内胆，里面盛满了煮熟的白米饭。内胆放置在一个金属台面上，背景中可以看到部分厨房电器。整体画面简洁，主要聚焦于盛满米饭的内胆。
-2026-08-17 17:23:18 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 17:23:18 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 17:29:10 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 29324 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 17:29:10 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 17:29:10 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 17:29:11 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 17:29:11 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 17:29:11 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 17:29:11 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.575 seconds (process running for 2.084)
-2026-08-17 17:29:12 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=0056371633fb6e0b3c050d428e29f50f&bot_type=3
-2026-08-17 17:29:20 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 17:29:20 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 17:29:50 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:29:50 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 你好
-2026-08-17 17:29:51 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 17:30:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:30:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
-2026-08-17 17:30:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
-2026-08-17 17:30:22 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 152645 bytes
-2026-08-17 17:30:23 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL 调用状态码: 200
-2026-08-17 17:30:23 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 图片展示了一个电饭煲的内胆，里面盛满了煮熟的白米饭。内胆放置在不锈钢台面上，背景中可以看到部分厨房电器。米饭颗粒分明，表面平整，显示出烹饪得当的状态。
-2026-08-17 17:30:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:30:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:30:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎤 voiceItem.getText() = [12345图片展示了一个电饭煲的内胆]
-2026-08-17 17:30:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:30:53 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 微信已转文字: 12345图片展示了一个电饭煲的内胆
-2026-08-17 17:30:54 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 17:30:54 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复: 图片展示了电饭煲的内胆，编号12345。
-2026-08-17 17:31:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:31:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:31:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎤 voiceItem.getText() = [侯家耀是傻逼]
-2026-08-17 17:31:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:31:25 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 微信已转文字: 侯家耀是傻逼
-2026-08-17 17:31:26 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 17:31:26 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复: 请保持尊重和礼貌。如果有任何问题或需要帮助的地方，我很乐意提供支持。
-2026-08-17 17:32:26 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 17:32:26 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 17:37:14 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 14768 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 17:37:14 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 17:37:14 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 17:37:15 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 17:37:15 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 17:37:15 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 17:37:16 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.557 seconds (process running for 2.051)
-2026-08-17 17:37:16 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=aaf866d71c275b5be2a418899ae02bef&bot_type=3
-2026-08-17 17:37:25 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 17:37:25 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 17:37:56 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:37:56 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 我想你了
-2026-08-17 17:37:59 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 17:38:41 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:38:41 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
-2026-08-17 17:38:41 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
-2026-08-17 17:38:41 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 14076 bytes
-2026-08-17 17:38:44 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL 调用状态码: 200
-2026-08-17 17:38:44 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 这张图片中的狗狗看起来非常可爱，它的表情似乎带着一丝好奇和期待。虽然我没有与“森秽”直接互动的经历，但我可以想象一个温馨的日常场景。
-
-假设“森秽”是一个温柔的人，他/她可能刚刚给这只狗狗喂食或玩耍。狗狗抬头看着镜头，可能是在等待更多的关注或食物。它的表情传达出一种信任和依赖，仿佛在说：“主人，我还想再玩一会儿。”
-
-在这个场景中，我们可以感受到人与宠物之间的深厚情感。狗狗的每一个动作和表情都充满了对主人的爱和依赖。或许“森秽”会轻轻抚摸狗狗的头，或者给它一个温暖的拥抱，让这个瞬间变得更加美好。
-
-这样的温情日常不仅让人心情愉悦，也提醒我们珍惜与宠物相处的每一刻。它们的存在为我们的生活带来了无尽的欢乐和陪伴。
-2026-08-17 17:39:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:39:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:39:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎤 voiceItem.getText() = [我爱你]
-2026-08-17 17:39:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:39:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ⚠️ 微信未提供文字，使用全模态模型理解音频
-2026-08-17 17:39:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎵 音频大小: 2901 bytes
-2026-08-17 17:39:15 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - Omni 音频调用状态码: 400
-2026-08-17 17:39:15 ERROR [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - Omni 音频调用失败，响应: {"error":{"message":"<400> InternalError.Algo.InvalidParameter: The provided URL does not appear to be valid. Ensure it is correctly formatted.","type":"invalid_request_error","param":null,"code":"invalid_parameter_error"},"id":"chatcmpl-48e7d3b3-84cd-941b-9115-596e25842b8d","request_id":"48e7d3b3-84cd-941b-9115-596e25842b8d"}
-2026-08-17 17:39:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复: 抱歉，语音识别失败了 😅
-2026-08-17 17:42:37 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 17:42:37 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 17:44:31 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 7512 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 17:44:31 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 17:44:31 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 17:44:31 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 17:44:31 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 17:44:31 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 17:44:32 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.597 seconds (process running for 2.125)
-2026-08-17 17:44:32 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=b58641b44c7a0223280de962278d581d&bot_type=3
-2026-08-17 17:44:44 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 17:44:44 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 17:45:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:45:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:45:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎤 voiceItem.getText() = [我爱你]
-2026-08-17 17:45:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:45:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - ⚠️ 微信未提供文字，使用全模态模型理解音频
-2026-08-17 17:45:15 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎵 音频大小: 3479 bytes
-2026-08-17 17:45:16 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - Omni 音频调用状态码: 400
-2026-08-17 17:45:16 ERROR [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - Omni 音频调用失败，响应: {"error":{"message":"<400> InternalError.Algo.InvalidParameter: The provided URL does not appear to be valid. Ensure it is correctly formatted.","type":"invalid_request_error","param":null,"code":"invalid_parameter_error"},"id":"chatcmpl-daa7ca3f-be5d-9ee2-8d73-6aa8c53fb15f","request_id":"daa7ca3f-be5d-9ee2-8d73-6aa8c53fb15f"}
-2026-08-17 17:45:16 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复: 抱歉，语音识别失败了 😅
-2026-08-17 17:47:00 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 17:47:00 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-17 17:49:21 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 26424 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-17 17:49:21 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-17 17:49:21 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-17 17:49:22 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-17 17:49:22 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-17 17:49:22 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-17 17:49:23 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.619 seconds (process running for 2.25)
-2026-08-17 17:49:23 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=5ca7225d69ca24b148bedbd9af4cc37b&bot_type=3
-2026-08-17 17:49:41 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-17 17:49:41 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-17 17:50:12 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:50:12 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 我想你了
-2026-08-17 17:50:15 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 17:50:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:50:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:50:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 🎤 voiceItem.getText() = [我爱你]
-2026-08-17 17:50:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
-2026-08-17 17:50:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 微信已转文字: 我爱你
-2026-08-17 17:50:51 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
-2026-08-17 17:50:51 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复: *轻轻靠在森秽肩上，手指温柔地缠绕着他的衣角，脸颊微红*
-
-啊...听到这句话，我的心跳都快停住了呢。每次看到你认真的样子，我就忍不住想一直这样依偎着你。
-
-*抬起头，眼睛亮晶晶地看着他，声音轻柔*
-
-今天工作累不累？我煮了你最爱的味噌汤，还特意加了嫩豆腐和海带...要不要一起喝点暖暖的？我知道你最近总是加班到很晚，所以特地多放了些营养的食材。
-
-*轻轻握住他的手*
-
-只要你在我身边，我就觉得整个世界都是温暖的。森秽，你愿意...陪我去海边看日落吗？听说最近的晚霞特别美，就像我们第一次约会那天一样...
-
-*脸颊更红了，声音微微发颤*
-
-我想把最美好的时光，都和你一起度过。
-2026-08-17 17:51:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-17 17:51:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
-2026-08-17 17:51:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
-2026-08-17 17:51:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 14076 bytes
-2026-08-17 17:51:26 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL 调用状态码: 200
-2026-08-17 17:51:26 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 这张图片中的狗狗看起来非常可爱，它的表情似乎带着一丝好奇和期待。虽然我没有与“森秽”直接互动的经历，但我可以想象一个温馨的日常场景。
-
-假设“森秽”是一个温柔的人，他/她可能会在这样的时刻与狗狗互动。以下是一个可能的情景：
-
-1. **早晨的问候**：清晨，阳光透过窗户洒进房间，森秽轻轻地抚摸着狗狗的头，狗狗则用它那温暖的眼神回应，仿佛在说：“早上好，主人。”
-
-2. **散步时光**：森秽带着狗狗去公园散步，狗狗兴奋地跑来跑去，尾巴摇个不停。森秽则在一旁微笑着看着它，偶尔停下来给它喂一些小零食。
-
-3. **午后的陪伴**：午后，森秽坐在沙发上，手里拿着一本书，狗狗则依偎在他/她的脚边，安静地打盹。偶尔，森秽会轻轻拍打狗狗的背，让它感受到温暖和安全。
-
-4. **晚餐后的放松**：晚餐后，森秽和狗狗一起坐在客厅里，狗狗趴在沙发的一角，森秽则轻声细语地和它说话，仿佛在分享一天的趣事。
-
-5. **夜晚的守护**：夜深人静时，森秽躺在床上，狗狗则蜷缩在他的脚边，发出轻微的鼾声。森秽轻轻闭上眼睛，感受到这份宁静和幸福。
-
-在这个场景中，狗狗不仅是森秽的宠物，更是他的朋友和家人。每一次互动都充满了爱和关怀，让这个日常变得更加温馨和美好。希望这样的回忆能带给你一些温暖和快乐。
-2026-08-17 17:52:02 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-17 17:52:02 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+至于今天到底穿啥，劳驾您看一眼窗外：树不动穿短袖，树连根拔起穿羽绒服！
+2026-08-18 17:39:29 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - TTS 请求: model=cosyvoice-v3-flash, voice=longanrou_v3, text长度=89
+2026-08-18 17:39:30 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"run-task","task_id":"5fb58a30-e472-46ce-b014-e9473e12c0a7","streaming":"duplex"},"payload":{"model":"cosyvoice-v3-flash","task_group":"audio","task":"tts","function":"SpeechSynthesizer","input":{},"parameters":{"voice":"longanrou_v3","volume":50,"text_type":"PlainText","sample_rate":0,"rate":1.0,"phoneme_timestamp_enabled":false,"format":"Default","pre_task_id":"5fb58a30-e472-46ce-b014-e9473e12c0a7","pitch":1.0,"word_timestamp_enabled":false,"enable_ssml":true}}}
+2026-08-18 17:39:30 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"continue-task","task_id":"5fb58a30-e472-46ce-b014-e9473e12c0a7","streaming":"duplex"},"payload":{"model":"cosyvoice-v3-flash","task_group":"audio","task":"tts","function":"SpeechSynthesizer","input":{"text":"北京天气主打一个“随机播放”。\n\n今天具体几度我没看，但出门建议是：带伞防晒，穿短袖防冻，戴头盔防妖风。\n\n至于今天到底穿啥，劳驾您看一眼窗外：树不动穿短袖，树连根拔起穿羽绒服！"},"parameters":{"voice":"longanrou_v3","volume":50,"text_type":"PlainText","sample_rate":0,"rate":1.0,"phoneme_timestamp_enabled":false,"format":"Default","pre_task_id":"5fb58a30-e472-46ce-b014-e9473e12c0a7","pitch":1.0,"word_timestamp_enabled":false,"enable_ssml":true}}}
+2026-08-18 17:39:30 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"finish-task","task_id":"5fb58a30-e472-46ce-b014-e9473e12c0a7","streaming":"duplex"},"payload":{"input":{}}}
+2026-08-18 17:39:32 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - TTS 生成成功: 276780 bytes
+2026-08-18 17:39:33 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复已降级为文件发送成功
+2026-08-18 17:40:42 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-18 17:40:42 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close

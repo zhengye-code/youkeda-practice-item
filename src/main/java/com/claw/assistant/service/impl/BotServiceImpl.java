@@ -1,7 +1,10 @@
 package com.claw.assistant.service.impl;
 
+import com.claw.assistant.model.IntentType;
 import com.claw.assistant.service.BotService;
 import com.claw.assistant.service.LlmService;
+import com.claw.assistant.service.TtsService;
+import com.claw.assistant.service.WeatherService;
 import com.github.wechat.ilink.sdk.ILinkClient;
 import com.github.wechat.ilink.sdk.core.config.ILinkConfig;
 import com.github.wechat.ilink.sdk.core.listener.OnLoginListener;
@@ -18,7 +21,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 
 @Service
@@ -27,6 +32,12 @@ public class BotServiceImpl implements BotService {
     private ILinkClient iLinkClient;
     @Autowired
     private LlmService llmService;
+    @Autowired
+    private WeatherService weatherService;
+    @Autowired
+    private IntentRecognizer intentRecognizer;
+    @Autowired
+    private TtsService ttsService;
 
     @PostConstruct
     @Override
@@ -90,8 +101,32 @@ public class BotServiceImpl implements BotService {
                     if (item.getText_item() != null) {
                         String text = item.getText_item().getText();
                         logger.info("文本: {}", text);
-                        String reply = llmService.chat(text);
-                        iLinkClient.sendText(userId, reply);
+                        IntentType intent = intentRecognizer.recognize(text);
+                        logger.info("意图: {}", intent);
+                        switch (intent) {
+                            case WEATHER -> {
+                                try {
+                                    String city = extractCity(text);
+                                    String weatherData = weatherService.getWeather(city);
+                                    String reply = llmService.chatWithWeatherContext(text, weatherData);
+                                    iLinkClient.sendText(userId, reply);
+                                    logger.info("天气回复: {}", reply);
+                                } catch (Exception e) {
+                                    logger.error("天气查询/回复失败", e);
+                                    iLinkClient.sendText(userId, "抱歉，天气查询出了点问题");
+                                }
+                            }
+                            case CHAT -> {
+                                try {
+                                    String reply = llmService.chat(text);
+                                    iLinkClient.sendText(userId, reply);
+                                    logger.info("闲聊回复: {}", reply);
+                                } catch (Exception e) {
+                                    logger.error("闲聊回复失败", e);
+                                    iLinkClient.sendText(userId, "抱歉，我暂时无法回复");
+                                }
+                            }
+                        }
                     }else if (item.getImage_item() != null) {
                         logger.info("收到图片消息");
                         handleImageMessage(userId, item.getImage_item());
@@ -104,23 +139,49 @@ public class BotServiceImpl implements BotService {
         }
     }
 
-    private void handleVoiceMessage(String userId,VoiceItem voiceItem) {
-        logger.info("voiceItem.getText() = {}", voiceItem.getText());
+    private void sendMp3(String userId,byte[] mp3){
         try {
-            logger.info("收到语音消息");
-            String reply = "";
-            String voiceText = voiceItem.getText();
-            if (voiceText != null && !voiceText.trim().isEmpty()) {
-                logger.info("微信已转文字: {}", voiceText);
-                reply = llmService.chat(voiceText);
-            }
-            logger.info("语音回复: {}", reply);
-            iLinkClient.sendText(userId, reply);
-
+            iLinkClient.sendFile(userId,mp3,"reply.mp3","语音回复");
         }catch (Exception e){
-
+            logger.error("failure",e);
         }
+    }
 
+    private void handleVoiceMessage(String userId, VoiceItem voiceItem) {
+        try {
+            String asrText = voiceItem.getText();
+            if (asrText == null || asrText.isBlank()) {
+                iLinkClient.sendText(userId, "没听清你说什么");
+                return;
+            }
+            logger.info("语音ASR: {}", asrText);
+            String replyText = llmService.chat(asrText);
+            logger.info("字回复: {}", replyText);
+            byte[] audioBytes = ttsService.textToSpeech(replyText);
+            String fileName = "reply_" + System.currentTimeMillis() + ".mp3";
+            iLinkClient.sendFile(userId, audioBytes, fileName, "AI 语音回复：" + replyText);
+            logger.info("语音回复已降级为文件发送成功");
+
+        } catch (Exception e) {
+            logger.error("语音处理失败", e);
+            try {
+                iLinkClient.sendText(userId, "语音回复出了点问题，我用文字回你吧～");
+            } catch (Exception ex) {
+                logger.error("连文字降级都失败了", ex);
+            }
+        }
+    }
+
+    private String extractCity(String text) {
+        if (text.contains("北京")) return "北京";
+        if (text.contains("上海")) return "上海";
+        if (text.contains("广州")) return "广州";
+        if (text.contains("深圳")) return "深圳";
+        if (text.contains("杭州")) return "杭州";
+        if (text.contains("成都")) return "成都";
+        if (text.contains("重庆")) return "重庆";
+        if (text.contains("武汉")) return "武汉";
+        return "北京";
     }
 
     private void handleImageMessage(String userId, ImageItem imageItem) {
