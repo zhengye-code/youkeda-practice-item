@@ -1,4 +1,4 @@
-package com.claw.assistant.service.impl;
+/*package com.claw.assistant.service.impl;
 
 import com.claw.assistant.model.IntentType;
 import com.claw.assistant.service.LlmService;
@@ -51,4 +51,4 @@ public class IntentRecognizer {
             return IntentType.CHAT;
         }
     }
-}
+}*/

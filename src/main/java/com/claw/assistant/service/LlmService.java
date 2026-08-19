@@ -3,6 +3,8 @@ package com.claw.assistant.service;
 import java.io.IOException;
 
 public interface LlmService {
+    String chatWithTools(String message);
+
     String chatWithWeatherContext(String userMessage, String weatherData) throws IOException;
 
     String chat(String message);

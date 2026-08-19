@@ -34,8 +34,8 @@ public class BotServiceImpl implements BotService {
     private LlmService llmService;
     @Autowired
     private WeatherService weatherService;
-    @Autowired
-    private IntentRecognizer intentRecognizer;
+    /*@Autowired
+    private IntentRecognizer intentRecognizer;*/
     @Autowired
     private TtsService ttsService;
 
@@ -101,31 +101,15 @@ public class BotServiceImpl implements BotService {
                     if (item.getText_item() != null) {
                         String text = item.getText_item().getText();
                         logger.info("文本: {}", text);
-                        IntentType intent = intentRecognizer.recognize(text);
-                        logger.info("意图: {}", intent);
-                        switch (intent) {
-                            case WEATHER -> {
-                                try {
-                                    String city = extractCity(text);
-                                    String weatherData = weatherService.getWeather(city);
-                                    String reply = llmService.chatWithWeatherContext(text, weatherData);
-                                    iLinkClient.sendText(userId, reply);
-                                    logger.info("天气回复: {}", reply);
-                                } catch (Exception e) {
-                                    logger.error("天气查询/回复失败", e);
-                                    iLinkClient.sendText(userId, "抱歉，天气查询出了点问题");
-                                }
-                            }
-                            case CHAT -> {
-                                try {
-                                    String reply = llmService.chat(text);
-                                    iLinkClient.sendText(userId, reply);
-                                    logger.info("闲聊回复: {}", reply);
-                                } catch (Exception e) {
-                                    logger.error("闲聊回复失败", e);
-                                    iLinkClient.sendText(userId, "抱歉，我暂时无法回复");
-                                }
-                            }
+                        /*IntentType intent = intentRecognizer.recognize(text);
+                        logger.info("意图: {}", intent);*/
+                        try {
+                            String reply = llmService.chatWithTools(text);
+                            iLinkClient.sendText(userId, reply);
+                            logger.info("AI回复: {}", reply);
+                        } catch (Exception e) {
+                            logger.error("AI回复失败", e);
+                            iLinkClient.sendText(userId, "抱歉，我暂时无法回复");
                         }
                     }else if (item.getImage_item() != null) {
                         logger.info("收到图片消息");
