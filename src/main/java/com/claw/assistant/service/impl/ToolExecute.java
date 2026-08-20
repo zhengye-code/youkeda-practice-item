@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +36,7 @@ public class ToolExecute {
             try {
                 String result = switch (name) {
                     case "get_weather" -> executeGetWeather(args);
+                    case "get_current_time" -> executeGetCurrentTime();
                     case "calculate"    -> executeCalculate(args);
                     default -> "{\"error\":\"未知工具: " + name + "\"}";
                 };
@@ -51,6 +54,14 @@ public class ToolExecute {
         String city = args.getString("city");
         String result = weatherService.getWeather(city);
         return result != null ? result : "{\"error\":\"未获取到天气信息\"}";
+    }
+
+    private String executeGetCurrentTime() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedTime = now.format(formatter);
+        logger.info("执行工具 get_current_time, 结果: {}", formattedTime);
+        return String.format("{\"time\": \"%s\"}", formattedTime);
     }
 
     private String executeCalculate(JSONObject args) {

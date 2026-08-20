@@ -32,6 +32,17 @@ public class ToolFunctions {
         tools.put(getWeather);
 
 
+        JSONObject timeTool = new JSONObject();
+        timeTool.put("type", "function");
+        JSONObject timeFunc = new JSONObject();
+        timeFunc.put("name", "get_current_time");
+        timeFunc.put("description", "获取当前的日期和时间，格式为yyyy-MM-dd HH:mm:ss。当用户询问现在几点或今天日期时使用。");
+        JSONObject timeParams = new JSONObject();
+        timeParams.put("type", "object");
+        timeParams.put("properties", new JSONObject());
+        timeFunc.put("parameters", timeParams);
+        timeTool.put("function", timeFunc);
+        tools.put(timeTool);
 
 
         JSONObject calculate = new JSONObject();

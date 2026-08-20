@@ -1,180 +1,137 @@
-2026-08-19 10:20:06 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 19172 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-19 10:20:06 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-19 10:20:06 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-19 10:20:07 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-19 10:20:07 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-19 10:20:07 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-19 10:20:07 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 2.144 seconds (process running for 4.169)
-2026-08-19 10:20:08 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=0138f4351d80d1146b28cd9ae487a086&bot_type=3
-2026-08-19 10:20:16 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-19 10:20:16 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-19 10:20:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 10:20:46 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 北京天气
-2026-08-19 10:20:47 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 意图分类结果: [WEATHER] (原文: 北京天气)
-2026-08-19 10:20:47 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 意图: WEATHER
-2026-08-19 10:20:47 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 请求天气: cityName=北京, cityCode=110000
-2026-08-19 10:20:47 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气API返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"北京","city":"北京市","adcode":"110000","weather":"晴","temperature":"28","winddirection":"东南","windpower":"≤3","humidity":"66","reporttime":"2026-08-19 10:03:01","temperature_float":"28.0","humidity_float":"66.0"}]}
-2026-08-19 10:20:54 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 天气回复: 北京今天是个阳光明媚的大晴天，气温28°C，东南风微风不燥，湿度66%。这天气挺适合出门溜达的，不过太阳公公热情高涨，出门记得涂防晒打伞，可别被烤成北京烤鸭啦！
-2026-08-19 10:21:21 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-19 10:21:21 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-19 10:55:01 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 37016 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-19 10:55:01 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-19 10:55:01 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-19 10:55:02 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-19 10:55:02 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-19 10:55:02 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-19 10:55:03 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.793 seconds (process running for 2.362)
-2026-08-19 10:55:03 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=13ff32ad69ffab2a405af0217082319c&bot_type=3
-2026-08-19 10:55:13 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-19 10:55:13 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-19 10:55:43 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 10:55:43 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 你好
-2026-08-19 10:55:43 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 意图分类结果: [CHAT] (原文: 你好)
-2026-08-19 10:55:43 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 意图: CHAT
-2026-08-19 10:55:45 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
-2026-08-19 10:55:45 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 你好！有什么我可以帮你的吗？
-2026-08-19 10:57:03 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 10:57:03 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 北京天气
-2026-08-19 10:57:04 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 意图分类结果: [WEATHER] (原文: 北京天气)
-2026-08-19 10:57:04 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 意图: WEATHER
-2026-08-19 10:57:05 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
-2026-08-19 10:57:05 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 🔧 执行工具: get_weather (call_id=call_ff305a568753497cb3f64429)
-2026-08-19 10:57:05 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 请求天气: cityName=北京, cityCode=110000
-2026-08-19 10:57:05 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气API返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"北京","city":"北京市","adcode":"110000","weather":"晴","temperature":"28","winddirection":"南","windpower":"≤3","humidity":"67","reporttime":"2026-08-19 10:37:42","temperature_float":"28.0","humidity_float":"67.0"}]}
-2026-08-19 10:57:05 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - ✅ 工具 get_weather 执行成功: 北京 北京市 天气
-天气：晴
-气温：28°C
-风向：南风 ≤3级
-湿度：67%
-更新时间：2026-08-19 10:37:42
-2026-08-19 10:57:07 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
-2026-08-19 10:57:07 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 北京现在的天气是晴天，气温28°C，南风3级以下，湿度67%。天气不错，适合出行哦！
-2026-08-19 10:57:37 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 10:57:37 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 123+123
-2026-08-19 10:57:38 INFO  [ilink-scheduler] c.c.a.service.impl.IntentRecognizer - 意图分类结果: [CHAT] (原文: 123+123)
-2026-08-19 10:57:38 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 意图: CHAT
-2026-08-19 10:57:40 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
-2026-08-19 10:57:40 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 🔧 执行工具: calculate (call_id=call_951364ddeb7a43aea3694272)
-2026-08-19 10:57:40 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - ✅ 工具 calculate 执行成功: {"result":246.0000}
-2026-08-19 10:57:41 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
-2026-08-19 10:57:41 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 123 + 123 的结果是 246。
-2026-08-19 10:57:47 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-19 10:57:47 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-19 11:00:00 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 10896 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-19 11:00:00 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-19 11:00:00 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-19 11:00:01 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-19 11:00:01 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-19 11:00:01 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-19 11:00:01 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.66 seconds (process running for 2.201)
-2026-08-19 11:00:01 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=c17013b08b0d7808331fbfcc2e7a3d2f&bot_type=3
-2026-08-19 11:00:10 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-19 11:00:10 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-19 11:00:41 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 11:00:41 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 上海天气
-2026-08-19 11:00:42 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
-2026-08-19 11:00:42 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 🔧 执行工具: get_weather (call_id=call_63eeb79d531c41cab165cde1)
-2026-08-19 11:00:42 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 请求天气: cityName=上海, cityCode=310000
-2026-08-19 11:00:43 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气API返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"上海","city":"上海市","adcode":"310000","weather":"晴","temperature":"32","winddirection":"西","windpower":"≤3","humidity":"62","reporttime":"2026-08-19 10:33:07","temperature_float":"32.0","humidity_float":"62.0"}]}
-2026-08-19 11:00:43 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - ✅ 工具 get_weather 执行成功: 上海 上海市 天气
-天气：晴
-气温：32°C
-风向：西风 ≤3级
-湿度：62%
-更新时间：2026-08-19 10:33:07
-2026-08-19 11:00:52 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
-2026-08-19 11:00:52 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 上海今天可是个明晃晃的大晴天，气温飙到了32°C！这温度，出门基本就是“铁板烧”模式，撒点孜然就能直接上桌了。而且湿度还有62%，配上那几乎感觉不到的微风（西风≤3级），妥妥的“免费桑拿房”体验卡一张！
+2026-08-20 10:23:15 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 32596 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-20 10:23:15 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-20 10:23:15 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-20 10:23:15 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-20 10:23:15 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-20 10:23:16 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-20 10:23:16 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 2.185 seconds (process running for 3.024)
+2026-08-20 10:23:16 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=eb341e80660c78a3112269715cb793d5&bot_type=3
+2026-08-20 10:23:24 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-20 10:23:24 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-20 10:23:55 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-20 10:23:55 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 你好
+2026-08-20 10:24:01 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
+2026-08-20 10:24:01 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 你好呀！👋 我是你的智能小助手，上知天气冷暖，下算加减乘除。今天有什么我可以帮你的吗？是想看看出门要不要带伞，还是想算算自己离亿万富翁还差几个零？😎
+2026-08-20 10:24:31 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-20 10:24:31 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 安阳天气
+2026-08-20 10:24:33 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
+2026-08-20 10:24:33 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 执行工具: get_weather (call_id=call_22d0a4239b8a47b0bdddffab)
+2026-08-20 10:24:33 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码请求URL: https://restapi.amap.com/v3/geocode/geo?address=%E5%AE%89%E9%98%B3&output=JSON&key=db19fca9ef570b7c6665ff0c441076af
+2026-08-20 10:24:33 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码返回: {"status":"1","info":"OK","infocode":"10000","count":"1","geocodes":[{"formatted_address":"河南省安阳市","country":"中国","province":"河南省","citycode":"0372","city":"安阳市","district":[],"township":[],"neighborhood":{"name":[],"type":[]},"building":{"name":[],"type":[]},"adcode":"410500","street":[],"number":[],"location":"114.392480,36.098779","level":"市"}]}
+2026-08-20 10:24:33 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 查询天气使用的市级adcode: 410500
+2026-08-20 10:24:33 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气接口返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"河南","city":"安阳市","adcode":"410500","weather":"雾","temperature":"27","winddirection":"北","windpower":"≤3","humidity":"86","reporttime":"2026-08-20 10:00:12","temperature_float":"27.0","humidity_float":"86.0"}]}
+2026-08-20 10:24:33 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 工具 get_weather 执行成功: 河南安阳市天气播报
+天气：雾
+气温：27℃
+风向风力：北风 ≤3级
+湿度：86%
+更新时间：2026-08-20 10:00:12
+2026-08-20 10:24:41 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
+2026-08-20 10:24:41 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 哈喽！安阳的天气播报来啦！
 
-听我一句劝，今天最适合的活动就是待在空调房里，抱着半个冰西瓜，用勺子挖着吃，做个快乐的“吃瓜群众”。要是非得出门，防晒伞和防晒霜可得全副武装上，别把自己晒成“黑炭”啦！
-2026-08-19 11:01:22 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 11:01:22 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 安阳天气
-2026-08-19 11:01:24 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
-2026-08-19 11:01:24 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 🔧 执行工具: get_weather (call_id=call_94a56bc1875e40ed8ba15afe)
-2026-08-19 11:01:24 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 请求天气: cityName=安阳, cityCode=110000
-2026-08-19 11:01:24 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气API返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"北京","city":"北京市","adcode":"110000","weather":"晴","temperature":"28","winddirection":"南","windpower":"≤3","humidity":"67","reporttime":"2026-08-19 10:37:42","temperature_float":"28.0","humidity_float":"67.0"}]}
-2026-08-19 11:01:24 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - ✅ 工具 get_weather 执行成功: 北京 北京市 天气
-天气：晴
-气温：28°C
-风向：南风 ≤3级
-湿度：67%
-更新时间：2026-08-19 10:37:42
-2026-08-19 11:01:30 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
-2026-08-19 11:01:31 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 报告！天气系统今天可能有点“串台”了，你想查安阳，它却给你端上了北京的天气大餐！🍲 
+今天安阳的天气是“雾”蒙蒙的一片，气温27℃，湿度高达86%！这配置，简直就是大自然免费赠送的“天然桑拿房”啊，出门走两步都能感觉自己快要“融化”在空气里了。🥵
 
-不过既然它这么热情，我就先给你播报一下：今天北京晴空万里，气温28°C，南风≤3级，湿度67%。
+好在有北风≤3级的小风陪着，虽然不热得让人发狂，但这湿度配上大雾，出门记得给自己加个“仙气飘飘”的滤镜。不过开车出行的朋友千万要注意安全，慢悠悠地开，毕竟咱们是在人间赶路，不是在天上腾云驾雾呢！☁️🚗
 
-至于安阳嘛，估计也是阳光明媚的好天气。出门记得做好防晒，别被这28°C的热情给“烤”熟啦！☀️😎
-2026-08-19 11:01:44 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-19 11:01:44 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-19 11:06:04 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 20608 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-19 11:06:04 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-19 11:06:04 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-19 11:06:05 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-19 11:06:05 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-19 11:06:05 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-19 11:06:06 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.587 seconds (process running for 2.127)
-2026-08-19 11:06:06 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=baa66dde329c3f2017d571b965424fce&bot_type=3
-2026-08-19 11:06:15 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-19 11:06:15 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-19 11:06:45 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 11:06:45 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 安阳天气
-2026-08-19 11:06:47 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
-2026-08-19 11:06:47 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 🔧 执行工具: get_weather (call_id=call_e5f7616c255d4129b8204b54)
-2026-08-19 11:06:47 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - ✅ 工具 get_weather 执行成功: 抱歉，找不到城市「安阳」的编码，请换个说法试试（比如用完整的城市名）
-2026-08-19 11:06:49 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
-2026-08-19 11:06:49 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 
-2026-08-19 11:07:19 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 11:07:19 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 北京天气
-2026-08-19 11:07:21 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
-2026-08-19 11:07:21 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 🔧 执行工具: get_weather (call_id=call_c58bbc25bc9048b28f0f9dfd)
-2026-08-19 11:07:22 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - ✅ 工具 get_weather 执行成功: 抱歉，找不到城市「北京」的编码，请换个说法试试（比如用完整的城市名）
-2026-08-19 11:07:23 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
-2026-08-19 11:07:24 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 
-2026-08-19 11:07:48 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-19 11:07:48 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
-2026-08-19 11:12:50 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 19060 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
-2026-08-19 11:12:50 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
-2026-08-19 11:12:50 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-19 11:12:51 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-19 11:12:51 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-19 11:12:51 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
-2026-08-19 11:12:51 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.551 seconds (process running for 2.082)
-2026-08-19 11:12:51 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=2389c4374266a9d391ce1df61e5ea4b9&bot_type=3
-2026-08-19 11:13:02 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
-2026-08-19 11:13:02 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
-2026-08-19 11:13:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 11:13:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 北京天气
-2026-08-19 11:13:34 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
-2026-08-19 11:13:34 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 🔧 执行工具: get_weather (call_id=call_85e1dc993a9943fca58d3bd2)
-2026-08-19 11:13:34 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码请求URL: https://restapi.amap.com/v3/geocode/geo?address=%E5%8C%97%E4%BA%AC&output=JSON&key=db19fca9ef570b7c6665ff0c441076af
-2026-08-19 11:13:34 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码返回: {"status":"1","info":"OK","infocode":"10000","count":"1","geocodes":[{"formatted_address":"北京市","country":"中国","province":"北京市","citycode":"010","city":"北京市","district":[],"township":[],"neighborhood":{"name":[],"type":[]},"building":{"name":[],"type":[]},"adcode":"110000","street":[],"number":[],"location":"116.407387,39.904179","level":"省"}]}
-2026-08-19 11:13:34 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 查询天气使用的市级adcode: 110000
-2026-08-19 11:13:34 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气接口返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"北京","city":"北京市","adcode":"110000","weather":"晴","temperature":"29","winddirection":"南","windpower":"≤3","humidity":"69","reporttime":"2026-08-19 11:03:01","temperature_float":"29.0","humidity_float":"69.0"}]}
-2026-08-19 11:13:34 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - ✅ 工具 get_weather 执行成功: 🌤 北京北京市天气播报
-☁️ 天气：晴
-🌡 气温：29℃
-💨 风向风力：南风 ≤3级
-💧 湿度：69%
-🕐 更新时间：2026-08-19 11:03:01
-2026-08-19 11:13:40 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
-2026-08-19 11:13:40 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 北京今天晴空万里，气温29℃，南风≤3级，湿度69%。这天气，出门不涂防晒，分分钟给你晒成“北京烤鸭”！记得多喝水，别把自己烤糊啦~🍉🕶️
-2026-08-19 11:14:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
-2026-08-19 11:14:10 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 安阳天气
-2026-08-19 11:14:12 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
-2026-08-19 11:14:12 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 🔧 执行工具: get_weather (call_id=call_765130327c5f4fbb89e7f743)
-2026-08-19 11:14:12 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码请求URL: https://restapi.amap.com/v3/geocode/geo?address=%E5%AE%89%E9%98%B3&output=JSON&key=db19fca9ef570b7c6665ff0c441076af
-2026-08-19 11:14:12 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码返回: {"status":"1","info":"OK","infocode":"10000","count":"1","geocodes":[{"formatted_address":"河南省安阳市","country":"中国","province":"河南省","citycode":"0372","city":"安阳市","district":[],"township":[],"neighborhood":{"name":[],"type":[]},"building":{"name":[],"type":[]},"adcode":"410500","street":[],"number":[],"location":"114.392480,36.098779","level":"市"}]}
-2026-08-19 11:14:12 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 查询天气使用的市级adcode: 410500
-2026-08-19 11:14:12 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气接口返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"河南","city":"安阳市","adcode":"410500","weather":"雾","temperature":"25","winddirection":"西","windpower":"≤3","humidity":"92","reporttime":"2026-08-19 11:00:12","temperature_float":"25.0","humidity_float":"92.0"}]}
-2026-08-19 11:14:12 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - ✅ 工具 get_weather 执行成功: 🌤 河南安阳市天气播报
-☁️ 天气：雾
-🌡 气温：25℃
-💨 风向风力：西风 ≤3级
-💧 湿度：92%
-🕐 更新时间：2026-08-19 11:00:12
-2026-08-19 11:14:15 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
-2026-08-19 11:14:16 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 安阳今天可是自带“仙气”啊！☁️ 25℃的气温配上92%的超高湿度，加上漫天大雾，出门感觉自己不是在散步，而是在天庭御剑飞行呢！🗡️✨ 
+祝你今天有个清爽又愉快的好心情！
+2026-08-20 10:25:12 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-20 10:25:12 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
+2026-08-20 10:25:12 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到图片消息
+2026-08-20 10:25:12 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 图片大小: 14076 bytes
+2026-08-20 10:25:14 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - VL调用状态码: 200
+2026-08-20 10:25:14 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI 描述: 这张图片里的狗狗真是太有“魅力”了！它那张脸几乎占据了整个画面，仿佛在说：“嘿，你是不是被我的颜值迷住了？”它的表情看起来既认真又有点无辜，好像在问：“我是不是该给你点奖励？”它的鼻子大得让人忍俊不禁，仿佛是专门为拍照设计的。
 
-不过“仙境”虽美，能见度可能不太给力，出门记得带好“导航”（眼睛放亮点），开车的朋友更是要开启“龟速模式”，安全第一哦！🚗💨 记得带把伞，毕竟这湿度，空气都能拧出水来了！☔️
-2026-08-19 11:17:00 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
-2026-08-19 11:17:00 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+背景中隐约可见一个笼子，这不禁让人联想到它可能刚刚经历了一场“冒险”，比如试图逃脱或者只是想引起主人的注意。不管怎样，这只狗狗显然是个“戏精”，知道如何用最直接的方式吸引你的注意力。
+
+总之，这张照片完美地捕捉到了狗狗那种“我是世界上最可爱”的自信和“你必须爱我”的坚定信念。看着它，谁能不心软呢？
+2026-08-20 10:25:44 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-20 10:25:44 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 收到语音消息
+2026-08-20 10:25:44 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音ASR: 喂喂喂
+2026-08-20 10:25:58 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 调用状态码: 200
+2026-08-20 10:25:58 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 字回复: 滋滋……收到，信号满格！请讲，over。📻
+2026-08-20 10:25:58 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - TTS 请求: model=cosyvoice-v3-flash, voice=longanrou_v3, text长度=22
+2026-08-20 10:25:58 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"run-task","task_id":"7a1c160e-5eb5-4e76-bf28-e2544c2f4f7c","streaming":"duplex"},"payload":{"model":"cosyvoice-v3-flash","task_group":"audio","task":"tts","function":"SpeechSynthesizer","input":{},"parameters":{"voice":"longanrou_v3","volume":50,"text_type":"PlainText","sample_rate":0,"rate":1.0,"phoneme_timestamp_enabled":false,"format":"Default","pre_task_id":"7a1c160e-5eb5-4e76-bf28-e2544c2f4f7c","pitch":1.0,"word_timestamp_enabled":false,"enable_ssml":true}}}
+2026-08-20 10:25:58 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"continue-task","task_id":"7a1c160e-5eb5-4e76-bf28-e2544c2f4f7c","streaming":"duplex"},"payload":{"model":"cosyvoice-v3-flash","task_group":"audio","task":"tts","function":"SpeechSynthesizer","input":{"text":"滋滋……收到，信号满格！请讲，over。📻"},"parameters":{"voice":"longanrou_v3","volume":50,"text_type":"PlainText","sample_rate":0,"rate":1.0,"phoneme_timestamp_enabled":false,"format":"Default","pre_task_id":"7a1c160e-5eb5-4e76-bf28-e2544c2f4f7c","pitch":1.0,"word_timestamp_enabled":false,"enable_ssml":true}}}
+2026-08-20 10:25:58 INFO  [ForkJoinPool.commonPool-worker-1] c.a.d.p.okhttp.OkHttpWebSocketClient - Sending message: {"header":{"action":"finish-task","task_id":"7a1c160e-5eb5-4e76-bf28-e2544c2f4f7c","streaming":"duplex"},"payload":{"input":{}}}
+2026-08-20 10:25:59 INFO  [ilink-scheduler] c.c.a.service.impl.TtsServiceImpl - TTS 生成成功: 77413 bytes
+2026-08-20 10:26:01 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 语音回复已降级为文件发送成功
+2026-08-20 10:26:19 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-20 10:26:19 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-20 10:35:31 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 36352 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-20 10:35:31 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-20 10:35:31 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-20 10:35:31 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-20 10:35:31 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-20 10:35:31 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-20 10:35:32 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.551 seconds (process running for 2.076)
+2026-08-20 10:35:32 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=bfced752ba11bd8d7db8528f2fb2f9e7&bot_type=3
+2026-08-20 10:36:03 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-20 10:36:03 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-20 10:36:34 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-20 10:36:34 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 现在几点
+2026-08-20 10:36:35 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第一轮状态码: 200
+2026-08-20 10:36:35 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 执行工具: get_current_time (call_id=call_174de938b9d24084bdc6d529)
+2026-08-20 10:36:35 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 执行工具 get_current_time, 结果: 2026-08-20 10:36:35
+2026-08-20 10:36:35 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 工具 get_current_time 执行成功: {"time": "2026-08-20 10:36:35"}
+2026-08-20 10:36:42 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - LLM 第二轮状态码: 200
+2026-08-20 10:36:43 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 现在是上午10点36分！
+
+距离午饭时间还有大概一个半小时，你的肚子是不是已经开始偷偷打鼓了？要是正在摸鱼，记得随时切回工作界面哦，毕竟老板的“暗中观察”技能可是随时冷却完毕的！😎 今天也要元气满满呀！
+2026-08-20 10:43:01 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-20 10:43:01 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close
+2026-08-20 10:54:47 INFO  [main] c.c.a.ClawAssistantApplication - Starting ClawAssistantApplication using Java 24.0.2 with PID 27712 (C:\Users\sen_hui\Desktop\youkeda-practice-item\target\classes started by sen_hui in C:\Users\sen_hui\Desktop\youkeda-practice-item)
+2026-08-20 10:54:47 DEBUG [main] c.c.a.ClawAssistantApplication - Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-08-20 10:54:47 INFO  [main] c.c.a.ClawAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-20 10:54:48 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-20 10:54:48 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-20 10:54:48 INFO  [main] c.c.a.service.impl.BotServiceImpl - Bot starting
+2026-08-20 10:54:49 INFO  [main] c.c.a.ClawAssistantApplication - Started ClawAssistantApplication in 1.59 seconds (process running for 2.12)
+2026-08-20 10:54:49 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=aa640078e68e005efb4c8ef2009939c7&bot_type=3
+2026-08-20 10:55:02 INFO  [ilink-io] c.c.a.service.impl.BotServiceImpl - onLoginSuccess
+2026-08-20 10:55:02 INFO  [Bot] c.c.a.service.impl.BotServiceImpl - success
+2026-08-20 10:55:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-20 10:55:32 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 现在北京天气多少度，乘二之后是多少
+2026-08-20 10:55:34 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 执行工具: get_weather (call_id=call_006458847595434c8611a5d3)
+2026-08-20 10:55:34 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码请求URL: https://restapi.amap.com/v3/geocode/geo?address=%E5%8C%97%E4%BA%AC&output=JSON&key=db19fca9ef570b7c6665ff0c441076af
+2026-08-20 10:55:34 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码返回: {"status":"1","info":"OK","infocode":"10000","count":"1","geocodes":[{"formatted_address":"北京市","country":"中国","province":"北京市","citycode":"010","city":"北京市","district":[],"township":[],"neighborhood":{"name":[],"type":[]},"building":{"name":[],"type":[]},"adcode":"110000","street":[],"number":[],"location":"116.407387,39.904179","level":"省"}]}
+2026-08-20 10:55:34 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 查询天气使用的市级adcode: 110000
+2026-08-20 10:55:34 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气接口返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"北京","city":"北京市","adcode":"110000","weather":"雾","temperature":"29","winddirection":"东北","windpower":"≤3","humidity":"70","reporttime":"2026-08-20 10:37:40","temperature_float":"29.0","humidity_float":"70.0"}]}
+2026-08-20 10:55:34 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 工具 get_weather 执行成功: 北京北京市天气播报
+天气：雾
+气温：29℃
+风向风力：东北风 ≤3级
+湿度：70%
+更新时间：2026-08-20 10:37:40
+2026-08-20 10:55:34 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - 🔄 完成第1轮工具调用
+2026-08-20 10:55:36 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 执行工具: calculate (call_id=call_e6aa88524b3b4109ac0c918e)
+2026-08-20 10:55:36 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 工具 calculate 执行成功: {"result":58.0000}
+2026-08-20 10:55:36 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - 🔄 完成第2轮工具调用
+2026-08-20 10:55:38 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 北京现在的天气气温是29℃，乘二之后是58。
+2026-08-20 10:56:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - userId = o9cq8086GXfpsRAW1Gy3thbS_ksE@im.wechat,messageType=1
+2026-08-20 10:56:21 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - 文本: 北京天气度数乘当前小时数是多少
+2026-08-20 10:56:24 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 执行工具: get_weather (call_id=call_acffdc40032e4cb1aa5cece7)
+2026-08-20 10:56:24 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码请求URL: https://restapi.amap.com/v3/geocode/geo?address=%E5%8C%97%E4%BA%AC&output=JSON&key=db19fca9ef570b7c6665ff0c441076af
+2026-08-20 10:56:25 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德地理编码返回: {"status":"1","info":"OK","infocode":"10000","count":"1","geocodes":[{"formatted_address":"北京市","country":"中国","province":"北京市","citycode":"010","city":"北京市","district":[],"township":[],"neighborhood":{"name":[],"type":[]},"building":{"name":[],"type":[]},"adcode":"110000","street":[],"number":[],"location":"116.407387,39.904179","level":"省"}]}
+2026-08-20 10:56:25 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 查询天气使用的市级adcode: 110000
+2026-08-20 10:56:25 INFO  [ilink-scheduler] c.c.a.s.impl.WeatherServiceImpl - 高德天气接口返回: {"status":"1","count":"1","info":"OK","infocode":"10000","lives":[{"province":"北京","city":"北京市","adcode":"110000","weather":"雾","temperature":"29","winddirection":"东北","windpower":"≤3","humidity":"70","reporttime":"2026-08-20 10:37:40","temperature_float":"29.0","humidity_float":"70.0"}]}
+2026-08-20 10:56:25 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 工具 get_weather 执行成功: 北京北京市天气播报
+天气：雾
+气温：29℃
+风向风力：东北风 ≤3级
+湿度：70%
+更新时间：2026-08-20 10:37:40
+2026-08-20 10:56:25 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 执行工具: get_current_time (call_id=call_bef6f894cd8b4e2a97bcf239)
+2026-08-20 10:56:25 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 执行工具 get_current_time, 结果: 2026-08-20 10:56:25
+2026-08-20 10:56:25 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 工具 get_current_time 执行成功: {"time": "2026-08-20 10:56:25"}
+2026-08-20 10:56:25 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - 🔄 完成第1轮工具调用
+2026-08-20 10:56:27 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 执行工具: calculate (call_id=call_31204a58d2284678a73efe83)
+2026-08-20 10:56:27 INFO  [ilink-scheduler] c.c.a.service.impl.ToolExecute - 工具 calculate 执行成功: {"result":290.0000}
+2026-08-20 10:56:27 INFO  [ilink-scheduler] c.c.a.service.impl.LlmServiceImpl - 🔄 完成第2轮工具调用
+2026-08-20 10:56:30 INFO  [ilink-scheduler] c.c.a.service.impl.BotServiceImpl - AI回复: 根据查询结果：
+
+- 北京当前气温：**29℃**
+- 当前时间：**10:56**（小时数为10）
+
+计算结果：29 × 10 = **290**
+2026-08-20 11:18:45 INFO  [SpringApplicationShutdownHook] c.g.wechat.ilink.sdk.ILinkClient - closing ILinkClient
+2026-08-20 11:18:45 INFO  [SpringApplicationShutdownHook] c.c.a.service.impl.BotServiceImpl - Bot close

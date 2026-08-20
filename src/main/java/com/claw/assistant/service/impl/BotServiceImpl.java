@@ -21,9 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.List;
 
 @Service
@@ -123,14 +121,6 @@ public class BotServiceImpl implements BotService {
         }
     }
 
-    private void sendMp3(String userId,byte[] mp3){
-        try {
-            iLinkClient.sendFile(userId,mp3,"reply.mp3","语音回复");
-        }catch (Exception e){
-            logger.error("failure",e);
-        }
-    }
-
     private void handleVoiceMessage(String userId, VoiceItem voiceItem) {
         try {
             String asrText = voiceItem.getText();
@@ -138,7 +128,7 @@ public class BotServiceImpl implements BotService {
                 iLinkClient.sendText(userId, "没听清你说什么");
                 return;
             }
-            logger.info("语音ASR: {}", asrText);
+            logger.info("语音: {}", asrText);
             String replyText = llmService.chat(asrText);
             logger.info("字回复: {}", replyText);
             byte[] audioBytes = ttsService.textToSpeech(replyText);
@@ -149,23 +139,11 @@ public class BotServiceImpl implements BotService {
         } catch (Exception e) {
             logger.error("语音处理失败", e);
             try {
-                iLinkClient.sendText(userId, "语音回复出了点问题，我用文字回你吧～");
+                iLinkClient.sendText(userId, "语音回复有问题");
             } catch (Exception ex) {
-                logger.error("连文字降级都失败了", ex);
+                logger.error("文字降级失败", ex);
             }
         }
-    }
-
-    private String extractCity(String text) {
-        if (text.contains("北京")) return "北京";
-        if (text.contains("上海")) return "上海";
-        if (text.contains("广州")) return "广州";
-        if (text.contains("深圳")) return "深圳";
-        if (text.contains("杭州")) return "杭州";
-        if (text.contains("成都")) return "成都";
-        if (text.contains("重庆")) return "重庆";
-        if (text.contains("武汉")) return "武汉";
-        return "北京";
     }
 
     private void handleImageMessage(String userId, ImageItem imageItem) {
@@ -180,7 +158,7 @@ public class BotServiceImpl implements BotService {
             }
             logger.info("图片大小: {} bytes", imageBytes.length);
             String description = llmService.describeImage(imageBytes);
-            logger.info("AI 描述: {}", description);
+            logger.info("AI描述: {}", description);
             iLinkClient.sendText(userId, description);
         }catch (Exception e) {
             logger.error("处理图片失败", e);
@@ -191,8 +169,6 @@ public class BotServiceImpl implements BotService {
             }
         }
     }
-
-
 
     @PreDestroy
     public void stopBot() {

@@ -80,7 +80,7 @@ public class LlmServiceImpl implements LlmService {
                     .asText("（AI看图失败）");
 
         } catch (Exception e) {
-            logger.error("调用视觉模型失败", e);
+            logger.error("调用模型失败", e);
             return "（看图功能暂时不可用）";
         }
     }
@@ -127,91 +127,58 @@ public class LlmServiceImpl implements LlmService {
         }
     }
 
-    @Override
-    public String chatWithTools(String message) {
+    public String chatWithTools(String userMessage) {
         try {
             JSONArray messages = new JSONArray();
-
             JSONObject systemMsg = new JSONObject();
             systemMsg.put("role", "system");
-            systemMsg.put("content", "你是一个智能助手。当用户需要查询天气或做数学计算时，请调用对应的工具。回答时风趣幽默。");
+            systemMsg.put("content", "你是智能助手，规则：1.查天气必须调用get_weather工具；2.获取时间必须调用get_current_time工具；3.计算必须调用calculate工具；4.闲聊直接回复。");
             messages.put(systemMsg);
 
             JSONObject userMsg = new JSONObject();
             userMsg.put("role", "user");
-            userMsg.put("content", message);
+            userMsg.put("content", userMessage);
             messages.put(userMsg);
 
-            JSONObject body = new JSONObject();
-            body.put("model", model);
-            body.put("messages", messages);
-            body.put("tools", ToolFunctions.getTools());
-            body.put("tool_choice", "auto");
+            int maxRounds = 5;
+            for (int round = 0; round < maxRounds; round++) {
+                JSONObject body = new JSONObject();
+                body.put("model", model);
+                body.put("messages", messages);
+                body.put("tools", ToolFunctions.getTools());
+                body.put("tool_choice", "auto");
 
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(baseUrl))
-                    .header("Authorization", "Bearer " + apiKey)
-                    .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(body.toString()))
-                    .build();
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(URI.create(baseUrl))
+                        .header("Authorization", "Bearer " + apiKey)
+                        .header("Content-Type", "application/json")
+                        .POST(HttpRequest.BodyPublishers.ofString(body.toString()))
+                        .build();
 
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-            logger.info("LLM 第一轮状态码: {}", response.statusCode());
+                HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+                JSONObject root = new JSONObject(response.body());
+                JSONObject assistantMsg = root.getJSONArray("choices").getJSONObject(0).getJSONObject("message");
 
-            if (response.statusCode() != 200) {
-                throw new IOException("LLM 调用失败: " + response.statusCode() + ", body: " + response.body());
+                JSONArray toolCalls = assistantMsg.optJSONArray("tool_calls");
+                if (toolCalls == null || toolCalls.isEmpty()) {
+                    return assistantMsg.optString("content", "（没有返回内容）");
+                }
+                messages.put(assistantMsg);
+                Map<String, String> toolResults = toolExecute.execute(toolCalls);
+                for (Map.Entry<String, String> entry : toolResults.entrySet()) {
+                    JSONObject toolResultMsg = new JSONObject();
+                    toolResultMsg.put("role", "tool");
+                    toolResultMsg.put("tool_call_id", entry.getKey());
+                    toolResultMsg.put("content", entry.getValue());
+                    messages.put(toolResultMsg);
+                }
+
+                logger.info("完成第{}轮工具调用", round + 1);
             }
 
-            JSONObject root = new JSONObject(response.body());
-            JSONObject firstMsg = root.getJSONArray("choices").getJSONObject(0).getJSONObject("message");
-
-            JSONArray toolCalls = firstMsg.optJSONArray("tool_calls");
-
-            if (toolCalls == null || toolCalls.isEmpty()) {
-                return firstMsg.optString("content", "（模型没有返回内容）");
-            }
-
-            Map<String, String> toolResults = toolExecute.execute(toolCalls);
-
-            messages.put(firstMsg);
-
-            for (int i = 0; i < toolCalls.length(); i++) {
-                JSONObject call = toolCalls.getJSONObject(i);
-                String callId = call.getString("id");
-                String result = toolResults.getOrDefault(callId, "{\"error\":\"执行失败\"}");
-
-                JSONObject toolResultMsg = new JSONObject();
-                toolResultMsg.put("role", "tool");
-                toolResultMsg.put("tool_call_id", callId);
-                toolResultMsg.put("content", result);
-                messages.put(toolResultMsg);
-            }
-
-            JSONObject body2 = new JSONObject();
-            body2.put("model", model);
-            body2.put("messages", messages);
-
-            HttpRequest request2 = HttpRequest.newBuilder()
-                    .uri(URI.create(baseUrl))
-                    .header("Authorization", "Bearer " + apiKey)
-                    .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(body2.toString()))
-                    .build();
-
-            HttpResponse<String> response2 = httpClient.send(request2, HttpResponse.BodyHandlers.ofString());
-            logger.info("LLM 第二轮状态码: {}", response2.statusCode());
-
-            if (response2.statusCode() != 200) {
-                throw new IOException("LLM 第二轮调用失败: " + response2.statusCode());
-            }
-
-            JSONObject root2 = new JSONObject(response2.body());
-            return root2.getJSONArray("choices").getJSONObject(0)
-                    .getJSONObject("message")
-                    .optString("content", "（模型没有返回内容）");
-
+            return "（工具调用轮次过多，已终止）";
         } catch (Exception e) {
-            logger.error("chatWithTools 失败", e);
+            logger.error("多步工具调用失败", e);
             return "（AI暂时不在，稍后再试）";
         }
     }

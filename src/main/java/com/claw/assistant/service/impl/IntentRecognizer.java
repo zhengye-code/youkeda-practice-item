@@ -1,4 +1,4 @@
-/*package com.claw.assistant.service.impl;
+package com.claw.assistant.service.impl;
 
 import com.claw.assistant.model.IntentType;
 import com.claw.assistant.service.LlmService;
@@ -29,8 +29,8 @@ public class IntentRecognizer {
         String systemPrompt = """
             你是一个意图分类器。根据用户消息，判断用户是否想要查询天气。
             只输出一个单词：WEATHER 或 CHAT。
-            - 如果用户明确询问天气、气温、温度、是否下雨、冷不冷、热不热等，输出 WEATHER
-            - 其他所有情况（闲聊、翻译、计算、问答等），输出 CHAT
+            - 如果用户明确询问天气、气温、温度、是否下雨等，输出 WEATHER
+            - 其他所有情况，输出 CHAT
             
             只输出单词，不要任何解释、标点或换行。
             """;
@@ -51,4 +51,4 @@ public class IntentRecognizer {
             return IntentType.CHAT;
         }
     }
-}*/
+}
