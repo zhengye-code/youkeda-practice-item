@@ -9,12 +9,15 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Component
 public class ToolExecute {
     private static final Logger logger = LoggerFactory.getLogger(ToolExecute.class);
+    private static final MathContext CALCULATION_CONTEXT = MathContext.DECIMAL128;
 
     private final WeatherService weatherService;
 
@@ -22,29 +25,37 @@ public class ToolExecute {
         this.weatherService = weatherService;
     }
     public Map<String, String> execute(JSONArray toolCalls) {
-        Map<String, String> results = new HashMap<>();
+        Map<String, String> results = new LinkedHashMap<>();
 
         for (int i = 0; i < toolCalls.length(); i++) {
-            JSONObject call = toolCalls.getJSONObject(i);
-            String callId = call.getString("id");
-            JSONObject function = call.getJSONObject("function");
-            String name = function.getString("name");
-            JSONObject args = new JSONObject(function.getString("arguments"));
-
-            logger.info("执行工具: {} (call_id={})", name, callId);
+            String callId = "invalid_call_" + i;
+            String name = "";
 
             try {
+                JSONObject call = toolCalls.getJSONObject(i);
+                callId = call.optString("id", callId).trim();
+                JSONObject function = call.optJSONObject("function");
+                if (function == null) {
+                    throw new IllegalArgumentException("缺少 function 对象");
+                }
+                name = function.optString("name", "").trim();
+                if (name.isBlank()) {
+                    throw new IllegalArgumentException("缺少工具名称");
+                }
+                JSONObject args = new JSONObject(function.optString("arguments", "{}"));
+                logger.info("执行工具: {} (call_id={})", name, callId);
+
                 String result = switch (name) {
                     case "get_weather" -> executeGetWeather(args);
                     case "get_current_time" -> executeGetCurrentTime();
                     case "calculate"    -> executeCalculate(args);
-                    default -> "{\"error\":\"未知工具: " + name + "\"}";
+                    default -> errorJson("未知工具: " + name);
                 };
                 results.put(callId, result);
-                logger.info("工具 {} 执行成功: {}", name, result);
+                logger.info("工具 {} 执行完成: {}", name, result);
             } catch (Exception e) {
-                logger.error("工具 {} 执行失败", name, e);
-                results.put(callId, "{\"error\":\"工具执行失败: " + e.getMessage() + "\"}");
+                logger.warn("工具 {} 执行失败: {}", name, safeMessage(e));
+                results.put(callId, errorJson("工具执行失败: " + safeMessage(e)));
             }
         }
         return results;
@@ -65,22 +76,43 @@ public class ToolExecute {
     }
 
     private String executeCalculate(JSONObject args) {
-        double num1 = args.getDouble("num1");
-        double num2 = args.getDouble("num2");
+        BigDecimal num1 = args.getBigDecimal("num1");
+        BigDecimal num2 = args.getBigDecimal("num2");
         String op = args.getString("operation");
 
-        double result = switch (op) {
-            case "+" -> num1 + num2;
-            case "-" -> num1 - num2;
-            case "*" -> num1 * num2;
+        BigDecimal result = switch (op) {
+            case "+" -> num1.add(num2, CALCULATION_CONTEXT);
+            case "-" -> num1.subtract(num2, CALCULATION_CONTEXT);
+            case "*" -> num1.multiply(num2, CALCULATION_CONTEXT);
             case "/" -> {
-                if (num2 == 0) throw new IllegalArgumentException("除数不能为零");
-                yield num1 / num2;
+                if (num2.compareTo(BigDecimal.ZERO) == 0) {
+                    throw new IllegalArgumentException("除数不能为零");
+                }
+                yield num1.divide(num2, CALCULATION_CONTEXT);
             }
             default -> throw new IllegalArgumentException("不支持的运算符: " + op);
         };
 
-        return String.format("{\"result\":%.4f}", result);
+        JSONObject response = new JSONObject();
+        response.put("success", true);
+        response.put("result", normalize(result));
+        return response.toString();
     }
 
+    private static String normalize(BigDecimal value) {
+        BigDecimal normalized = value.stripTrailingZeros();
+        return normalized.signum() == 0 ? "0" : normalized.toPlainString();
+    }
+
+    private static String errorJson(String message) {
+        JSONObject response = new JSONObject();
+        response.put("success", false);
+        response.put("error", message == null || message.isBlank() ? "工具执行失败" : message);
+        return response.toString();
+    }
+
+    private static String safeMessage(Exception exception) {
+        String message = exception.getMessage();
+        return message == null || message.isBlank() ? exception.getClass().getSimpleName() : message;
+    }
 }

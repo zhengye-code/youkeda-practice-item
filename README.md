@@ -21,3 +21,24 @@ src/main/java/com/claw/assistant/
 │       └── TtsServiceImpl.java        #文字转语音
 └── config/
 └── ...                            # 配置类
+
+## 本地安全配置
+
+API Key 不得写入 `application.properties` 或提交到 Git。启动前在当前终端设置：
+
+```bash
+export DASHSCOPE_API_KEY="你的百炼 Key"
+export AMAP_WEATHER_API_KEY="你的高德 Web 服务 Key"
+```
+
+自动化测试会用 `bot.enabled=false` 禁止真实微信登录，避免测试时生成二维码或残留后台连接。需要临时禁止本地 Bot 启动时也可设置 `BOT_ENABLED=false`。
+
+已经提交到 Git 历史的旧 Key 必须在对应平台撤销并重新创建；只删除仓库中的明文不能使旧 Key 失效。
+
+## Function Calling 工具
+
+- `get_weather`：查询城市天气；
+- `get_current_time`：获取当前时间；
+- `calculate`：执行四则运算。
+
+`LlmServiceImpl.chatWithTools` 会把 JSON Schema 发给模型，执行模型返回的 `tool_calls`，再以 `role=tool` 回传结果，最多循环 5 轮。链式示例：先计算 `120 + 30` 得到 `150`，再把 `150` 作为下一步输入乘以 `2`，最终得到 `300`。

@@ -26,6 +26,7 @@ public class ToolFunctions {
 
         weatherParams.put("properties", weatherProps);
         weatherParams.put("required", new org.json.JSONArray().put("city"));
+        weatherParams.put("additionalProperties", false);
 
         weatherFunc.put("parameters", weatherParams);
         getWeather.put("function", weatherFunc);
@@ -40,6 +41,8 @@ public class ToolFunctions {
         JSONObject timeParams = new JSONObject();
         timeParams.put("type", "object");
         timeParams.put("properties", new JSONObject());
+        timeParams.put("required", new JSONArray());
+        timeParams.put("additionalProperties", false);
         timeFunc.put("parameters", timeParams);
         timeTool.put("function", timeFunc);
         tools.put(timeTool);
@@ -75,6 +78,7 @@ public class ToolFunctions {
 
         calcParams.put("properties", calcProps);
         calcParams.put("required", new org.json.JSONArray().put("num1").put("num2").put("operation"));
+        calcParams.put("additionalProperties", false);
 
         calcFunc.put("parameters", calcParams);
         calculate.put("function", calcFunc);

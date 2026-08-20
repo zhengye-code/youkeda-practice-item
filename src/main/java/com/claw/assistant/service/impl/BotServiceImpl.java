@@ -19,6 +19,7 @@ import jakarta.annotation.PreDestroy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -36,10 +37,16 @@ public class BotServiceImpl implements BotService {
     private IntentRecognizer intentRecognizer;*/
     @Autowired
     private TtsService ttsService;
+    @Value("${bot.enabled:true}")
+    private boolean botEnabled;
 
     @PostConstruct
     @Override
     public void startBot() {
+        if (!botEnabled) {
+            logger.info("Bot is disabled by configuration");
+            return;
+        }
         logger.info("Bot starting");
         ILinkConfig config = ILinkConfig.builder()
                 .connectTimeoutMs(35000)
