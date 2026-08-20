@@ -21,15 +21,6 @@ import kong.unirest.Unirest;
 public class AskAIService {
     private static final Logger log = LoggerFactory.getLogger(AskAIService.class);
 
-    /** 系统提示词前缀，用于引导 AI 结合对话记录回答。 */
-    private static final String SYSTEM_PROMPT =
-            "你是一个微信聊天AI，具有理解图片、视频、语音、文件的功能。"
-                    + "我调用了你的API，下面是我们之间的对话记录，你只需要结合对话记录，对用户最新的消息进行回复。"
-                    + "回复尽量精简且直接地达到用户的要求，并尽量使用大白话。"
-                    + "如果对话记录中存在你无法直接解析的图片、视频、语音、文件，但可以间接理解，"
-                    + "你将直接根据间接理解的信息进行回答。" +
-                    "对话记录如下：";
-
     /** 调用智谱 chat/completions 对话接口，返回 AI 的完整回答。支持 AI 调用工具（查天气/生成图片/生成语音）。 */
     public static String askAI(ILinkClient client, String userId, String aiContext) {
         log.info("将发送以下消息给AI：\n" + aiContext);
@@ -38,7 +29,7 @@ public class AskAIService {
             ArrayNode messages = mapper.createArrayNode();
             ObjectNode userMsg = mapper.createObjectNode();
             userMsg.put("role", "user");
-            userMsg.put("content", SYSTEM_PROMPT + aiContext);
+            userMsg.put("content", Config.systemPrompt() + aiContext);
             messages.add(userMsg);
 
             // 最多两轮：第一轮可能返回 tool_calls（AI 要求调用工具），执行后第二轮返回最终回答

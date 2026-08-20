@@ -2,6 +2,8 @@ package config;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +21,8 @@ public class Config {
     static {
         try (InputStream in = Config.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE)) {
             if (in != null) {
-                props.load(in);
+                // Properties 默认按 ISO-8859-1 读取，中文必须用 UTF-8 Reader 才能正常解析
+                props.load(new InputStreamReader(in, StandardCharsets.UTF_8));
             } else {
                 log.warn("未找到 {}，将使用默认值", PROPERTIES_FILE);
             }
@@ -86,6 +89,16 @@ public class Config {
     /** 文本转语音音色。 */
     public static String ttsVoice() {
         return get("ai.tts.voice", "tongtong");
+    }
+
+    /** AI 系统提示词前缀（引导 AI 结合对话记录回答，支持 \n 换行）。 */
+    public static String systemPrompt() {
+        return get("ai.systemPrompt",
+                "你是一个微信聊天AI，具有理解图片、视频、语音、文件的功能。\n"
+                        + "我调用了你的API，下面是我们之间的对话记录，你只需要结合对话记录，对用户最新的消息进行回复。\n"
+                        + "回复尽量精简且直接地达到用户的要求，并尽量使用大白话。\n"
+                        + "如果对话记录中存在你无法直接解析的图片、视频、语音、文件，但可以间接理解，"
+                        + "你将直接根据间接理解的信息进行回答。\n对话记录如下：");
     }
 
     /** 和风天气 API Host（专属域名）。 */
