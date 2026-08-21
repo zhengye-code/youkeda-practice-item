@@ -4,7 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -55,6 +57,35 @@ class ToolExecuteTest {
         JSONObject error = new JSONObject(result.get("unknown"));
         assertFalse(error.getBoolean("success"));
         assertTrue(error.getString("error").contains("未知工具"));
+    }
+
+    @Test
+    void executesIndependentToolCallsInParallelAndPreservesOrder() {
+        AtomicInteger activeCalls = new AtomicInteger();
+        AtomicInteger maximumConcurrentCalls = new AtomicInteger();
+        ToolExecute parallelExecutor = new ToolExecute(city -> {
+            int active = activeCalls.incrementAndGet();
+            maximumConcurrentCalls.accumulateAndGet(active, Math::max);
+            try {
+                Thread.sleep(120);
+                return new JSONObject().put("city", city).toString();
+            } catch (InterruptedException exception) {
+                Thread.currentThread().interrupt();
+                throw new IllegalStateException("天气查询被中断", exception);
+            } finally {
+                activeCalls.decrementAndGet();
+            }
+        });
+
+        Map<String, String> results = parallelExecutor.execute(new JSONArray()
+                .put(toolCall("weather_beijing", "get_weather",
+                        new JSONObject().put("city", "北京")))
+                .put(toolCall("weather_shanghai", "get_weather",
+                        new JSONObject().put("city", "上海"))));
+
+        assertTrue(maximumConcurrentCalls.get() >= 2);
+        assertEquals(List.of("weather_beijing", "weather_shanghai"),
+                List.copyOf(results.keySet()));
     }
 
     private static JSONObject toolCall(
