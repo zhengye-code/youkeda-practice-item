@@ -1,10 +1,11 @@
 package com.claw.assistant.service.impl;
 
 import com.claw.assistant.model.IntentType;
-import com.claw.assistant.service.BotService;
-import com.claw.assistant.service.LlmService;
-import com.claw.assistant.service.TtsService;
-import com.claw.assistant.service.WeatherService;
+import com.claw.assistant.model.SkillContext;
+import com.claw.assistant.model.SkillRouter;
+import com.claw.assistant.rag.RagEnhancedLlm;
+import com.claw.assistant.rag.SimpleRagRetriever;
+import com.claw.assistant.service.*;
 import com.github.wechat.ilink.sdk.ILinkClient;
 import com.github.wechat.ilink.sdk.core.config.ILinkConfig;
 import com.github.wechat.ilink.sdk.core.listener.OnLoginListener;
@@ -32,8 +33,14 @@ public class BotServiceImpl implements BotService {
     private LlmService llmService;
     @Autowired
     private WeatherService weatherService;
-    /*@Autowired
-    private IntentRecognizer intentRecognizer;*/
+    @Autowired
+    private SkillContext  skillContext;
+    @Autowired
+    private SkillRouter skillRouter;
+    @Autowired
+    private RagEnhancedLlm ragEnhancedLlm;
+    @Autowired
+    private SimpleRagRetriever ragRetriever;
     @Autowired
     private TtsService ttsService;
 
@@ -98,18 +105,38 @@ public class BotServiceImpl implements BotService {
                 for (MessageItem item : message.getItem_list()) {
                     if (item.getText_item() != null) {
                         String text = item.getText_item().getText();
-                        logger.info("文本: {}", text);
-                        /*IntentType intent = intentRecognizer.recognize(text);
-                        logger.info("意图: {}", intent);*/
+                        logger.info("收到文本消息：{}", text);
+
                         try {
+                            SkillService matchedSkill = skillRouter.match(text);
+                            if (matchedSkill != null) {
+                                logger.info("命中Skill通道：{}", matchedSkill.name());
+                                String reply = matchedSkill.execute(text, skillContext);
+                                iLinkClient.sendText(userId, reply);
+                                logger.info("Skill回复：{}", reply);
+                                return;
+                            }
+
+                            List<String> ragContexts = ragRetriever.retrieve(text, 3);
+                            if (!ragContexts.isEmpty()) {
+                                logger.info("命中RAG通道，检索到{}条知识", ragContexts.size());
+                                String reply = ragEnhancedLlm.chatWithRag(text);
+                                iLinkClient.sendText(userId, reply);
+                                logger.info("RAG增强回复：{}", reply);
+                                return;
+                            }
+
+                            logger.info("未命中Skill和RAG，走LLM兜底通道");
                             String reply = llmService.chatWithTools(text);
                             iLinkClient.sendText(userId, reply);
-                            logger.info("AI回复: {}", reply);
+                            logger.info("LLM兜底回复：{}", reply);
+
                         } catch (Exception e) {
-                            logger.error("AI回复失败", e);
-                            iLinkClient.sendText(userId, "抱歉，我暂时无法回复");
+                            logger.error("消息处理失败", e);
+                            iLinkClient.sendText(userId, "抱歉，我暂时无法处理你的请求~");
                         }
-                    }else if (item.getImage_item() != null) {
+                    }
+                    else if (item.getImage_item() != null) {
                         logger.info("收到图片消息");
                         handleImageMessage(userId, item.getImage_item());
                     }else if (item.getVoice_item() != null) {
