@@ -5,6 +5,7 @@ import com.claw.assistant.service.BotService;
 import com.claw.assistant.service.LlmService;
 import com.claw.assistant.service.TtsService;
 import com.claw.assistant.service.WeatherService;
+import com.claw.assistant.routing.MessageRouter;
 import com.github.wechat.ilink.sdk.ILinkClient;
 import com.github.wechat.ilink.sdk.core.config.ILinkConfig;
 import com.github.wechat.ilink.sdk.core.listener.OnLoginListener;
@@ -37,6 +38,8 @@ public class BotServiceImpl implements BotService {
     private IntentRecognizer intentRecognizer;*/
     @Autowired
     private TtsService ttsService;
+    @Autowired
+    private MessageRouter messageRouter;
     @Value("${bot.enabled:true}")
     private boolean botEnabled;
 
@@ -109,7 +112,7 @@ public class BotServiceImpl implements BotService {
                         /*IntentType intent = intentRecognizer.recognize(text);
                         logger.info("意图: {}", intent);*/
                         try {
-                            String reply = llmService.chatWithTools(text);
+                            String reply = messageRouter.route(text).reply();
                             iLinkClient.sendText(userId, reply);
                             logger.info("AI回复: {}", reply);
                         } catch (Exception e) {
@@ -136,7 +139,7 @@ public class BotServiceImpl implements BotService {
                 return;
             }
             logger.info("语音: {}", asrText);
-            String replyText = llmService.chat(asrText);
+            String replyText = messageRouter.route(asrText).reply();
             logger.info("字回复: {}", replyText);
             byte[] audioBytes = ttsService.textToSpeech(replyText);
             String fileName = "reply_" + System.currentTimeMillis() + ".mp3";

@@ -49,3 +49,66 @@ export AMAP_WEATHER_API_KEY="你的高德 Web 服务 Key"
 - 并行：同一轮中互不依赖的多个 `tool_calls` 使用 Java 21 虚拟线程同时执行，最终按模型给出的原始顺序回传结果。
 
 单个并行工具失败只会返回该工具的结构化错误，不会取消同一批次的其他工具。
+
+## RAG、Skill 与消息路由
+
+当前文本消息和语音转写文本统一经过以下路由：
+
+```text
+用户消息
+→ 命中“学习复盘 / 今日复盘 / 复盘学习” → StudyReviewSkill → 直接回复固定复盘流程
+→ 否则命中 RAG / Skill / Function Calling / 知识库 / 检索增强 → 本地 Markdown 关键词检索 → 增强 Prompt → LLM 回复
+→ 否则 → 原有 chatWithTools → 工具调用或普通闲聊
+```
+
+本练习中的业务意义：
+
+- Function Calling 工具执行天气、时间、计算等单个动作；
+- RAG 为模型补充项目私有资料，并要求回答附来源；
+- Skill 固化“学习复盘”这种多步骤业务流程，减少每次临时提示和流程漂移。
+
+知识库示例位于 `src/main/resources/knowledge-base/rag-skill-notes.md`。极简检索器会读取 Markdown、按空行切块，并按英文关键词和中文二元词进行 Top-K 排序，不依赖向量数据库。
+
+开启或关闭 RAG：
+
+```bash
+# 默认开启
+export RAG_ENABLED=true
+
+# 关闭后，同一个包含 RAG 关键词的问题会直接进入普通 LLM 路由
+export RAG_ENABLED=false
+```
+
+可用 `RAG_TOP_K` 调整返回片段数量，也可用逗号分隔的 `RAG_KEYWORDS` 调整触发词。`MessageRouterTest` 使用同一个问题分别验证开启时走 `RAG`、关闭时走 `DIRECT_LLM`，无需真实 API Key。
+
+## 校园 AI 学习助手：模块二
+
+模块二位于 `src/main/java/com/claw/assistant/learning/`，只负责接收模块一已经识别出的学习意图并生成结构化 Markdown，不负责意图分类或结果校验。
+
+支持的意图标签：
+
+- `KNOWLEDGE_SUMMARY`：知识点整理，固定输出核心考点、公式、典型应用、易错点和自测清单；
+- `STUDY_PLAN`：学习日程规划，按日期或阶段生成带优先级和完成标准的 Markdown 表格；
+- `WRONG_ANSWER_ANALYSIS`：错题解析，输出错误原因、分步解法、结论和避坑要点。
+
+调用接口：
+
+```bash
+curl -X POST http://localhost:8080/api/learning/content \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "sessionId": "student-001",
+    "intent": "STUDY_PLAN",
+    "content": "帮我制定下周物理复习计划，每晚可学习2小时"
+  }'
+```
+
+继续使用相同的 `sessionId` 和 `intent` 发送“把力学放到第一天”等追问时，服务会携带最近几轮对话，支持修改已有结果。不同意图的上下文互相隔离。
+
+清除某一类任务的上下文：
+
+```bash
+curl -X DELETE 'http://localhost:8080/api/learning/content/student-001?intent=STUDY_PLAN'
+```
+
+默认保留最近 4 轮、最大输出 1800 token，可分别通过 `LEARNING_CONTEXT_MAX_TURNS` 和 `LEARNING_OUTPUT_MAX_TOKENS` 调整。模块三可以直接注入 `LearningContentService`，获取 `LearningContentResult.markdown()` 后执行校验与二次生成。

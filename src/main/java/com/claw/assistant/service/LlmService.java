@@ -12,4 +12,14 @@ public interface LlmService {
     String describeImage(byte[] imageBytes);
 
     String chatWithSystemPrompt(String systemPrompt, String userMessage, String model) throws IOException;
+
+    default String chatWithSystemPrompt(
+            String systemPrompt,
+            String userMessage,
+            String model,
+            int maxTokens,
+            double temperature
+    ) throws IOException {
+        return chatWithSystemPrompt(systemPrompt, userMessage, model);
+    }
 }

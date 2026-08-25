@@ -87,6 +87,17 @@ public class LlmServiceImpl implements LlmService {
 
     @Override
     public String chatWithSystemPrompt(String systemPrompt, String userMessage, String model) throws IOException {
+        return chatWithSystemPrompt(systemPrompt, userMessage, model, 10, 0.0);
+    }
+
+    @Override
+    public String chatWithSystemPrompt(
+            String systemPrompt,
+            String userMessage,
+            String model,
+            int maxTokens,
+            double temperature
+    ) throws IOException {
         JSONArray messages = new JSONArray();
         JSONObject systemMsg = new JSONObject();
         systemMsg.put("role", "system");
@@ -101,11 +112,8 @@ public class LlmServiceImpl implements LlmService {
         JSONObject requestBodyJson = new JSONObject();
         requestBodyJson.put("model", model);
         requestBodyJson.put("messages", messages);
-
-        JSONObject parameters = new JSONObject();
-        parameters.put("max_tokens", 10);
-        parameters.put("temperature", 0.0);
-        requestBodyJson.put("parameters", parameters);
+        requestBodyJson.put("max_tokens", Math.max(1, maxTokens));
+        requestBodyJson.put("temperature", Math.max(0.0, Math.min(2.0, temperature)));
         String requestBody = requestBodyJson.toString();
 
         HttpRequest request = HttpRequest.newBuilder()
