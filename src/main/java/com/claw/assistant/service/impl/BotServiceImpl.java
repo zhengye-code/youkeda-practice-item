@@ -1,8 +1,6 @@
 package com.claw.assistant.service.impl;
 
-import com.claw.assistant.model.IntentType;
-import com.claw.assistant.model.SkillContext;
-import com.claw.assistant.model.SkillRouter;
+import com.claw.assistant.model.*;
 import com.claw.assistant.rag.RagEnhancedLlm;
 import com.claw.assistant.rag.SimpleRagRetriever;
 import com.claw.assistant.service.*;
@@ -43,6 +41,8 @@ public class BotServiceImpl implements BotService {
     private SimpleRagRetriever ragRetriever;
     @Autowired
     private TtsService ttsService;
+    @Autowired
+    private ValidationService validationService;
 
     @PostConstruct
     @Override
@@ -116,7 +116,49 @@ public class BotServiceImpl implements BotService {
                                 logger.info("Skill回复：{}", reply);
                                 return;
                             }
+                            if (text.equals("测试校验")) {
+                                String mockContent = """
+            # 高等代数：半正定矩阵知识点
+            
+            ## 定义
+            半正定矩阵是指所有特征值都大于等于0的实对称矩阵。
+            
+            ## 易错点
+            1. 正定矩阵的行列式可以等于0（错误！正定矩阵行列式必须>0）
+            2. 半正定矩阵的特征值可以包含负数（错误！必须≥0）
+            3. 判断半正定只需要看主子式都≥0即可
+            
+            ## 公式
+            - 二次型：f(x) = x^T A x
+            - 若A半正定，则x^T A x ≥ 0 对所有x成立
+            """;
 
+                                GenerationResult mockInput = new GenerationResult(
+                                        "帮我整理高等代数半正定矩阵知识点",
+                                        "知识点整理",
+                                        mockContent
+                                );
+
+                                ValidationResult result = validationService.validateAndFix(mockInput);
+
+                                String reply = """
+            ===== 子任务三校验结果 =====
+            校验状态：%s
+            发现问题数：%d
+            %s
+            
+            ===== 最终输出内容 =====
+            %s
+            """.formatted(
+                                        result.report().passed() ? "✅ 通过" : "❌ 未通过（已自动修复）",
+                                        result.report().issues().size(),
+                                        String.join("\n", result.report().issues()),
+                                        result.finalContent()
+                                );
+
+                                iLinkClient.sendText(userId, reply);
+                                return;
+                            }
                             List<String> ragContexts = ragRetriever.retrieve(text, 3);
                             if (!ragContexts.isEmpty()) {
                                 logger.info("命中RAG通道，检索到{}条知识", ragContexts.size());
