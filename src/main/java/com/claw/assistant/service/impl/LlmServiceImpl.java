@@ -118,6 +118,7 @@ public class LlmServiceImpl implements LlmService {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(baseUrl))
+                .timeout(Duration.ofSeconds(60))
                 .header("Authorization", "Bearer " + apiKey)
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(requestBody))
@@ -158,6 +159,7 @@ public class LlmServiceImpl implements LlmService {
 
                 HttpRequest request = HttpRequest.newBuilder()
                         .uri(URI.create(baseUrl))
+                        .timeout(Duration.ofSeconds(60))
                         .header("Authorization", "Bearer " + apiKey)
                         .header("Content-Type", "application/json")
                         .POST(HttpRequest.BodyPublishers.ofString(body.toString()))

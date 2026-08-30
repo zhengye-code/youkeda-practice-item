@@ -37,3 +37,4 @@ logs/
 *.log
 application-local.properties
 .env
+data/agent-tasks/

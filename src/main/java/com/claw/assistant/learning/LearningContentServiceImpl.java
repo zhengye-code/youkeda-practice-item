@@ -21,6 +21,7 @@ public class LearningContentServiceImpl implements LearningContentService {
     private final LlmService llmService;
     private final String model;
     private final int maxContextTurns;
+    private final int maxPromptChars;
     private final int maxOutputTokens;
     private final Map<ContextKey, Deque<ConversationTurn>> conversations = new ConcurrentHashMap<>();
 
@@ -28,11 +29,13 @@ public class LearningContentServiceImpl implements LearningContentService {
             LlmService llmService,
             @Value("${aliyun.dashscope.model}") String model,
             @Value("${learning.context.max-turns:4}") int maxContextTurns,
+            @Value("${learning.context.max-chars:6000}") int maxPromptChars,
             @Value("${learning.output.max-tokens:1800}") int maxOutputTokens
     ) {
         this.llmService = llmService;
         this.model = model;
         this.maxContextTurns = Math.max(1, maxContextTurns);
+        this.maxPromptChars = Math.max(4_500, maxPromptChars);
         this.maxOutputTokens = Math.max(256, maxOutputTokens);
     }
 
@@ -48,6 +51,12 @@ public class LearningContentServiceImpl implements LearningContentService {
         Deque<ConversationTurn> conversation = conversations.computeIfAbsent(key, ignored -> new ArrayDeque<>());
         List<ConversationTurn> history;
         synchronized (conversation) {
+            ConversationTurn latest = conversation.peekLast();
+            if (latest != null && latest.userInput().equals(validInput)) {
+                return new LearningContentResult(
+                        validSessionId, type, latest.assistantMarkdown(), conversation.size()
+                );
+            }
             history = new ArrayList<>(conversation);
         }
 
@@ -84,20 +93,28 @@ public class LearningContentServiceImpl implements LearningContentService {
     }
 
     private String buildConversationPrompt(List<ConversationTurn> history, String currentInput) {
+        String currentBlock = "\n[当前用户请求]\n" + currentInput;
         if (history.isEmpty()) {
-            return "当前用户请求：\n" + currentInput;
+            return currentBlock.substring(1);
         }
 
-        StringBuilder prompt = new StringBuilder("以下是同一任务的历史对话，仅用于理解本轮追问和修改要求：\n");
-        int index = 1;
-        for (ConversationTurn turn : history) {
-            prompt.append("\n[第").append(index++).append("轮用户]\n")
-                    .append(truncate(turn.userInput()))
-                    .append("\n[第").append(index - 1).append("轮助手]\n")
-                    .append(truncate(turn.assistantMarkdown()))
-                    .append('\n');
+        String header = "以下是同一任务的近期对话，仅用于理解本轮追问和修改要求：\n";
+        int remaining = maxPromptChars - header.length() - currentBlock.length();
+        List<String> selectedTurns = new ArrayList<>();
+        for (int index = history.size() - 1; index >= 0 && remaining > 0; index--) {
+            ConversationTurn turn = history.get(index);
+            String block = "\n[历史用户]\n" + truncate(turn.userInput())
+                    + "\n[历史助手]\n" + truncate(turn.assistantMarkdown()) + "\n";
+            if (block.length() <= remaining) {
+                selectedTurns.add(0, block);
+                remaining -= block.length();
+            } else if (selectedTurns.isEmpty() && remaining >= 200) {
+                String budgetMarker = "\n（历史上下文受预算限制）\n";
+                selectedTurns.add(0, block.substring(0, remaining - budgetMarker.length()) + budgetMarker);
+                remaining = 0;
+            }
         }
-        return prompt.append("\n[当前用户请求]\n").append(currentInput).toString();
+        return header + String.join("", selectedTurns) + currentBlock;
     }
 
     private String validateSessionId(String sessionId) {

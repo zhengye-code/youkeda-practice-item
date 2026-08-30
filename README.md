@@ -111,4 +111,40 @@ curl -X POST http://localhost:8080/api/learning/content \
 curl -X DELETE 'http://localhost:8080/api/learning/content/student-001?intent=STUDY_PLAN'
 ```
 
-默认保留最近 4 轮、最大输出 1800 token，可分别通过 `LEARNING_CONTEXT_MAX_TURNS` 和 `LEARNING_OUTPUT_MAX_TOKENS` 调整。模块三可以直接注入 `LearningContentService`，获取 `LearningContentResult.markdown()` 后执行校验与二次生成。
+默认保留最近 4 轮、Prompt 最多 6000 字符、最大输出 1800 token，可分别通过 `LEARNING_CONTEXT_MAX_TURNS`、`LEARNING_CONTEXT_MAX_CHARS` 和 `LEARNING_OUTPUT_MAX_TOKENS` 调整。完全相同的连续请求会直接复用上一轮结果，不重复调用模型。模块三可以直接注入 `LearningContentService`，获取 `LearningContentResult.markdown()` 后执行校验与二次生成。
+
+## 可定时、可断点续跑的学习长任务
+
+`src/main/java/com/claw/assistant/agent/` 将一个高层学习目标自动拆成三个检查点：
+
+1. 解析目标与约束；
+2. 调用模块二生成结构化学习内容；
+3. 整理最终 Markdown 成品。
+
+创建一个北京时间 2026-08-28 20:00（UTC 为 12:00）执行的任务：
+
+```bash
+curl -X POST http://localhost:8080/api/agent/tasks \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "sessionId": "student-001",
+    "intent": "STUDY_PLAN",
+    "goal": "结合我的晚间作息，生成一周高等数学复习计划",
+    "scheduledAt": "2026-08-28T12:00:00Z"
+  }'
+```
+
+查询、立即执行、暂停和恢复：
+
+```bash
+curl http://localhost:8080/api/agent/tasks/{taskId}
+curl -X POST http://localhost:8080/api/agent/tasks/{taskId}/run
+curl -X POST http://localhost:8080/api/agent/tasks/{taskId}/pause
+curl -X POST http://localhost:8080/api/agent/tasks/{taskId}/resume
+```
+
+调度器默认每秒检查到期任务，并使用 Java 21 虚拟线程执行，慢速模型调用不会阻塞后续扫描。同一个任务 ID 同时只会调度一次。每个步骤完成后都原子写入 `data/agent-tasks/{taskId}.json`；若应用在运行中退出，下次启动会把任务恢复到中断步骤，不重复执行已经完成的检查点。
+
+结构化大模型请求和工具调用请求设置了 60 秒单次超时。超时会使当前步骤进入 `FAILED` 并保存检查点，后续可通过 `/resume` 从该步骤重新执行，避免任务无限等待。
+
+可用 `AGENT_TASK_STORE_DIR` 修改检查点目录，用 `AGENT_TASK_POLL_INTERVAL_MS` 修改扫描间隔。运行数据默认不进入 Git。

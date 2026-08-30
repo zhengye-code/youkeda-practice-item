@@ -17,7 +17,7 @@ class LearningContentServiceImplTest {
     @Test
     void generatesKnowledgeSummaryWithRequiredPromptAndMarkdownResult() throws Exception {
         FakeLlmService llm = new FakeLlmService();
-        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 1800);
+        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 6000, 1800);
 
         LearningContentResult result = service.generate(
                 "student-1",
@@ -37,7 +37,7 @@ class LearningContentServiceImplTest {
     @Test
     void includesPreviousTurnsForFollowUpAndKeepsWindowBounded() throws Exception {
         FakeLlmService llm = new FakeLlmService();
-        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 2, 1000);
+        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 2, 6000, 1000);
 
         service.generate("plan-session", LearningTaskType.STUDY_PLAN, "制定三天物理复习计划");
         service.generate("plan-session", LearningTaskType.STUDY_PLAN, "每天只能学习两小时");
@@ -54,7 +54,7 @@ class LearningContentServiceImplTest {
     @Test
     void separatesContextByLearningTypeAndCanClearIt() throws Exception {
         FakeLlmService llm = new FakeLlmService();
-        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 1000);
+        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 6000, 1000);
 
         service.generate("same-session", LearningTaskType.STUDY_PLAN, "制定学习计划");
         service.generate("same-session", LearningTaskType.WRONG_ANSWER_ANALYSIS, "分析这道错题");
@@ -68,7 +68,7 @@ class LearningContentServiceImplTest {
     @Test
     void validatesSessionAndInputBeforeCallingModel() {
         FakeLlmService llm = new FakeLlmService();
-        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 1000);
+        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 6000, 1000);
 
         assertThrows(IllegalArgumentException.class,
                 () -> service.generate("bad/session", LearningTaskType.STUDY_PLAN, "制定计划"));
@@ -83,10 +83,36 @@ class LearningContentServiceImplTest {
     void rejectsEmptyModelResponse() {
         FakeLlmService llm = new FakeLlmService();
         llm.reply = " ";
-        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 1000);
+        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 6000, 1000);
 
         assertThrows(IOException.class,
                 () -> service.generate("student", LearningTaskType.WRONG_ANSWER_ANALYSIS, "分析错题"));
+    }
+
+    @Test
+    void reusesLastAnswerForExactDuplicateWithoutCallingModelAgain() throws Exception {
+        FakeLlmService llm = new FakeLlmService();
+        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 6000, 1000);
+
+        LearningContentResult first = service.generate("student", LearningTaskType.STUDY_PLAN, "制定三天计划");
+        LearningContentResult duplicate = service.generate("student", LearningTaskType.STUDY_PLAN, "制定三天计划");
+
+        assertEquals(first.markdown(), duplicate.markdown());
+        assertEquals(1, llm.prompts.size());
+        assertEquals(1, duplicate.contextTurns());
+    }
+
+    @Test
+    void keepsConversationPromptWithinConfiguredCharacterBudget() throws Exception {
+        FakeLlmService llm = new FakeLlmService();
+        llm.reply = "回答".repeat(2_000);
+        LearningContentServiceImpl service = new LearningContentServiceImpl(llm, "test-model", 4, 4500, 1000);
+
+        service.generate("student", LearningTaskType.KNOWLEDGE_SUMMARY, "第一轮问题");
+        service.generate("student", LearningTaskType.KNOWLEDGE_SUMMARY, "第二轮问题");
+
+        assertTrue(llm.lastUserPrompt.length() <= 4500);
+        assertTrue(llm.lastUserPrompt.contains("第二轮问题"));
     }
 
     private static class FakeLlmService implements LlmService {
